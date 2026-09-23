@@ -1,0 +1,72 @@
+/* ---------------------------------------------------------------- a clínica
+   A recepção real (story do Instagram, escolha do Felipe) sangra pela esquerda e se
+   apaga no preto à direita, como a foto do mockup. A foto é clara e quente; um véu
+   escuro leve a põe na mesma luz da seção. Texto e as três informações à direita.
+   A máscara termina 2 px antes da borda: com escala de 125% o mask-image deixava um
+   risco de 1 px (lição do 073).                                                         */
+.clinica { overflow: clip; }
+.clinica__foto {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 0;
+  width: 47vw;
+  -webkit-mask-image: linear-gradient(90deg, #000 62%, transparent calc(100% - 2px));
+  mask-image: linear-gradient(90deg, #000 62%, transparent calc(100% - 2px));
+}
+.clinica__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+.clinica__foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(11 10 8 / .22), rgb(11 10 8 / .45) 70%),
+    linear-gradient(0deg, rgb(11 10 8 / .5), transparent 30%),
+    linear-gradient(180deg, rgb(11 10 8 / .35), transparent 22%);
+  pointer-events: none;
+}
+.clinica__grade { position: relative; z-index: 1; }
+.clinica__texto { width: min(530px, 100%); margin-left: auto; padding-block: 8px; }
+@media (min-width: 64em) {
+  .clinica__texto { margin-left: 59%; }
+}
+.clinica__texto > p { max-width: 31em; margin-top: 18px; font-size: 15px; line-height: 1.7; color: #CFC7BB; }
+.clinica__info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 30px; }
+.clinica__info li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-inline: 16px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #E4DCD0;
+}
+.clinica__info li:first-child { padding-left: 0; }
+.clinica__info li + li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 1px;
+  background: linear-gradient(180deg, rgb(223 160 57 / .5), rgb(223 160 57 / .12));
+}
+.clinica__info .i { width: 24px; height: 24px; color: var(--ouro); }
+.clinica__texto .btn { margin-top: 32px; min-width: 250px; }
+
+@media (max-width: 63.99em) {
+  .clinica { padding-top: 0; }
+  .clinica__foto {
+    position: relative;
+    width: 100%;
+    height: clamp(300px, 88vw, 480px);
+    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent calc(100% - 2px));
+    mask-image: linear-gradient(180deg, #000 70%, transparent calc(100% - 2px));
+  }
+  .clinica__foto img { object-position: 50% 58%; }
+  .clinica__texto { width: 100%; margin: -26px 0 0; padding: 0; }
+  .clinica__info { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 26px; }
+  .clinica__info li { flex-direction: row; align-items: flex-start; gap: 14px; padding: 0; font-size: 13.5px; }
+  .clinica__info li + li::before { display: none; }
+  .clinica__texto .btn { width: 100%; }
+}

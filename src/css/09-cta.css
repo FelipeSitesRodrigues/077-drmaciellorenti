@@ -1,0 +1,53 @@
+/* ---------------------------------------------------------------- CTA final
+   Marfim com o close do Dr. Marciel no meio, se apagando no marfim dos dois lados, e a
+   frase de fechamento com fio dourado vertical à direita (mockup). O retrato vem do
+   próprio mockup, ampliado (escolha do Felipe); o "foco" da entrada disfarça a maciez. */
+.cta { position: relative; overflow: clip; background: linear-gradient(90deg, #F2ECE3 0%, #F4EEE6 40%, #EFE7DC 100%); color: var(--cor-texto); }
+.cta__grade {
+  display: grid;
+  grid-template-columns: minmax(0, 470px) minmax(0, 1fr) minmax(0, 236px);
+  align-items: center;
+  min-height: clamp(260px, 18.5vw, 300px);
+  column-gap: 20px;
+}
+.cta__texto { position: relative; z-index: 1; padding-block: 34px; }
+.cta__texto .titulo { font-size: clamp(2.1rem, 1.5rem + 1.5vw, 2.85rem); line-height: 1; }
+.cta__texto > p:not(.cta__micro) { max-width: 30em; margin-top: 14px; font-size: 14.5px; line-height: 1.65; }
+.cta__texto .btn { margin-top: 24px; min-width: 250px; }
+.cta__micro { display: flex; align-items: center; gap: 10px; margin-top: 16px; font-size: 12.5px; color: #6B6255; }
+.cta__micro .i { width: 18px; height: 18px; color: #A8731F; }
+
+.cta__foto {
+  position: relative;
+  align-self: stretch;
+  margin-inline: -110px -30px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 2px, #000 26%, #000 74%, transparent calc(100% - 2px));
+  mask-image: linear-gradient(90deg, transparent 2px, #000 26%, #000 74%, transparent calc(100% - 2px));
+}
+.cta__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+
+.cta__frase {
+  position: relative;
+  padding-left: 30px;
+  font: 500 12px/2.1 var(--fonte-texto);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #6E6456;
+}
+.cta__frase::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -18px;
+  bottom: -18px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, #B98A3D 20%, #B98A3D 80%, transparent);
+}
+
+@media (max-width: 63.99em) {
+  .cta__grade { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .cta__foto { order: -1; height: clamp(220px, 58vw, 340px); margin-inline: calc(50% - 50vw); -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent calc(100% - 2px)); mask-image: linear-gradient(180deg, #000 60%, transparent calc(100% - 2px)); }
+  .cta__texto { padding-block: 0 8px; margin-top: -18px; }
+  .cta__texto .btn { width: 100%; }
+  .cta__frase { margin: 34px 0 48px; padding-left: 22px; font-size: 11.5px; }
+}

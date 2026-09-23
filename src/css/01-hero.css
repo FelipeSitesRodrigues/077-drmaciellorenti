@@ -1,0 +1,216 @@
+/* ---------------------------------------------------------------- hero
+   Computador: fotografia de ponta a ponta em duas camadas, como o mockup monta. O fundo
+   (escritório à noite com a cidade) cobre o hero inteiro e o recorte do Dr. Marciel fica
+   na frente, cortado pela faixa de selos. Texto à esquerda, palavras e assinatura à direita.
+   Celular: headline, imagem (composição única com o Dr.), subheadline e botões, nessa
+   ordem (padrão da casa). Os filhos ficam soltos no grid e a ordem sai do
+   grid-template-areas; a assinatura pousa sobre a base escura da foto.                    */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--preto);
+  color: var(--areia);
+}
+.hero__titulo, .hero__sub, .hero__botoes, .hero__palavras, .hero__assinatura { position: relative; z-index: 2; }
+
+.hero__rotulo { font-size: 13px; letter-spacing: .24em; color: #D7A650; }
+.hero__frase {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+  font-size: clamp(3.1rem, 1.25rem + 5.25vw, 5.6rem);
+  line-height: .82;
+  letter-spacing: -.012em;
+  color: #FFFDF8;
+}
+/* cada linha é uma janela: o texto sobe de dentro dela. O respiro (padding compensado
+   por margem negativa) deixa ascendente, acento e o itálico sem corte */
+.hero__linha {
+  display: block;
+  overflow: clip;
+  padding: .16em .14em .12em 0;
+  margin: -.16em -.14em -.12em 0;
+}
+.hero__linha > span { display: inline-block; }
+.hero__frase em { font-weight: 500; }
+.hero__sub {
+  max-width: 30em;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.42;
+  color: #D5CEC4;
+}
+.hero__botoes { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 24px; }
+.hero__botoes .btn { min-width: 248px; letter-spacing: .12em; font-size: 12px; }
+
+.hero__palavras {
+  font: 500 11px/1 var(--fonte-texto);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: #C8BCA8;
+}
+.hero__palavras li { padding-block: 8px; }
+.hero__palavras::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -26px;
+  width: 1px;
+  background: linear-gradient(180deg, rgb(242 198 107 / .25), #E9B452 18%, #DFA039 82%, rgb(223 160 57 / .25));
+  transform-origin: 50% 0;
+}
+.hero__assinatura { color: #E3AE52; text-align: center; }
+.hero__assinatura .assinatura { width: 100%; }
+.hero__assinatura p {
+  margin-top: 12px;
+  font: 500 11px/2 var(--fonte-texto);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #DCD4C7;
+}
+
+/* ---------------------------------------------------------------- computador */
+@media (min-width: 64em) {
+  .hero {
+    padding-top: calc(var(--altura-topo) + clamp(60px, 5.4vw, 80px));
+    padding-bottom: clamp(36px, 2.8vw, 42px);
+  }
+  .hero__grade { max-width: var(--container); }
+  .hero__titulo, .hero__botoes { max-width: 610px; }
+  .hero__sub { max-width: 490px; font-size: 19px; }
+
+  .hero__fundo { position: absolute; inset: 0; z-index: -1; }
+  .hero__fundo img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 40%; }
+  /* legibilidade: o lado do texto cai pro preto, e a base encosta limpa nos selos */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(90deg, rgb(8 7 6 / .9) 0%, rgb(8 7 6 / .72) 28%, rgb(8 7 6 / .1) 52%, transparent 70%),
+      linear-gradient(270deg, rgb(8 7 6 / .86) 0%, rgb(8 7 6 / .6) 18%, rgb(8 7 6 / .2) 30%, transparent 40%),
+      linear-gradient(0deg, rgb(8 7 6 / .55), transparent 22%);
+    pointer-events: none;
+  }
+  /* luz quente atrás do Dr., como a contraluz dourada do mockup */
+  .hero::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: calc(50% - min(8vw, 116px));
+    top: calc(var(--altura-topo) - 10px);
+    width: clamp(520px, 44vw, 640px);
+    aspect-ratio: 1;
+    background: radial-gradient(closest-side, rgb(223 160 57 / .2), rgb(223 160 57 / .06) 55%, transparent);
+    pointer-events: none;
+  }
+  .hero__dr {
+    position: absolute;
+    z-index: 1;
+    /* preso ao container (1280): acima de 1440 ele não cresce nem anda pra esquerda */
+    left: calc(50% - min(6.8vw, 98px));
+    top: calc(var(--altura-topo) + 26px);
+    width: clamp(470px, 39.6vw, 572px);
+  }
+  .hero__dr img { width: 100%; height: auto; }
+
+  .hero__palavras {
+    position: absolute;
+    top: calc(var(--altura-topo) + 96px);
+    left: calc(50% + min(484px, 50vw - var(--margem) - 150px));
+  }
+  .hero__assinatura {
+    position: absolute;
+    top: calc(var(--altura-topo) + 262px);
+    right: max(var(--margem), 50% - var(--container) / 2);
+    width: 252px;
+  }
+}
+/* 1280 a 1439: o Dr. um pouco menor e mais à direita, pra não encostar no segundo botão */
+@media (min-width: 80em) and (max-width: 89.99em) {
+  .hero__dr { left: calc(50% - 60px); width: 37vw; }
+}
+/* 1024 a 1279: sem espaço pras palavras; o Dr. vai mais pra direita */
+@media (min-width: 64em) and (max-width: 79.99em) {
+  .hero__palavras { display: none; }
+  .hero__dr { left: auto; right: -2vw; width: 46vw; }
+  .hero::after { left: auto; right: 0; }
+  .hero__assinatura { display: none; }
+  .hero__titulo, .hero__sub, .hero__botoes { max-width: 520px; }
+  .hero__frase { font-size: clamp(3.1rem, 1rem + 5.4vw, 5rem); }
+}
+
+/* ---------------------------------------------------------------- celular e tablet */
+@media (max-width: 63.99em) {
+  .hero { padding-top: calc(var(--altura-topo) + 30px); padding-bottom: 46px; }
+  .hero__grade {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'titulo' 'foto' 'sub' 'botoes';
+  }
+  .hero__titulo { grid-area: titulo; }
+  .hero__rotulo { font-size: 11px; letter-spacing: .22em; max-width: 30ch; }
+  .hero__frase { margin-top: 14px; }
+
+  /* a foto sangra até as bordas da tela e emenda no preto em cima e embaixo */
+  /* max-width: none: o reset põe 100% no <picture> e isso travava a largura mesmo com a margem negativa */
+  .hero__fundo { grid-area: foto; position: relative; z-index: 0; max-width: none; margin: -34px calc(50% - 50vw) 0; }
+  .hero__fundo img { width: 100%; height: auto; max-height: 640px; object-fit: cover; object-position: 50% 16%; }
+  .hero__dr { display: none; }
+  .hero__palavras { display: none; }
+  /* no celular a assinatura não cabe sem cobrir o Dr.; o CRBM aparece nos selos logo abaixo */
+  .hero__assinatura { display: none; }
+
+  .hero__sub { grid-area: sub; max-width: 34em; margin-top: -30px; font-size: 16px; line-height: 1.55; }
+  .hero__botoes { grid-area: botoes; flex-direction: column; gap: 12px; margin-top: 26px; }
+  .hero__botoes .btn { width: 100%; min-width: 0; }
+}
+@media (min-width: 40em) and (max-width: 63.99em) {
+  .hero__fundo img { max-height: 560px; }
+  .hero__assinatura { display: block; grid-area: foto; align-self: end; justify-self: end; margin-bottom: 70px; }
+  .hero__assinatura p { margin-top: 6px; font-size: 10px; line-height: 1.7; text-shadow: 0 1px 8px rgb(0 0 0 / .8); }
+  .hero__botoes { flex-direction: row; }
+  .hero__botoes .btn { width: auto; flex: 1; }
+  .hero__assinatura { margin-right: 3vw; width: 200px; }
+}
+
+/* ---------------------------------------------------------------- abertura (o momento autoral da página)
+   A luz acende: o fundo assenta devagar, o Dr. sobe no lugar, o título sai de dentro de
+   cada linha, o ouro do itálico ganha um brilho que passa uma vez (como no monograma
+   polido), o fio dourado desce ao lado das palavras e a assinatura se escreve.
+   A foto do celular é a imagem de LCP: só escala, sem esconder, pra não atrasar a medição.
+   Só transform e opacidade na abertura: o recorte (clip-path) e o brilho do ouro
+   (background-position) não vão pra GPU e seguravam a thread principal por 2,5 s no
+   celular do Lighthouse. O brilho ficou só no computador, onde isso não pesa.            */
+@keyframes hero-assenta { from { transform: scale(1.08); } }
+@keyframes hero-dr { from { opacity: 0; transform: translateY(34px) scale(.985); } }
+@keyframes hero-linha { from { transform: translateY(108%); } }
+@keyframes hero-rotulo { from { opacity: 0; transform: translateX(-16px); } }
+@keyframes brilho-ouro { from { background-position: 125% 0; } to { background-position: 40% 0; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero__fundo img { animation: hero-assenta 2.8s var(--ease-out) backwards; }
+  .js .hero__dr { animation: hero-dr 1.5s var(--ease-suave) .12s backwards; }
+  .js .hero__rotulo { animation: hero-rotulo 1.1s var(--ease-in-out) .15s backwards; }
+  .js .hero__linha > span { animation: hero-linha 1.15s var(--ease-suave) backwards; }
+  .js .hero__linha:nth-child(1) > span { animation-delay: .28s; }
+  .js .hero__linha:nth-child(2) > span { animation-delay: .38s; }
+  .js .hero__linha:nth-child(3) > span { animation-delay: .48s; }
+  .js .hero__sub { animation: sobe 1s var(--ease-suave) .62s backwards; }
+  .js .hero__botoes { animation: sobe 1s var(--ease-suave) .74s backwards; }
+  .js .hero__palavras::before { animation: risca-y 1.3s var(--ease-out) .55s backwards; }
+  .js .hero__palavras li { animation: aparece .9s ease backwards; }
+  .js .hero__palavras li:nth-child(1) { animation-delay: .75s; }
+  .js .hero__palavras li:nth-child(2) { animation-delay: .85s; }
+  .js .hero__palavras li:nth-child(3) { animation-delay: .95s; }
+  .js .hero__palavras li:nth-child(4) { animation-delay: 1.05s; }
+  .js .hero__assinatura .assinatura { animation: escreve 2.1s var(--ease-in-out) .95s backwards; }
+  .js .hero__assinatura p { animation: sobe .9s var(--ease-suave) 1.75s backwards; }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 64em) and (hover: hover) {
+  .js .hero__frase .ouro-metal { animation: brilho-ouro 2.6s var(--ease-in-out) 1s backwards; }
+}

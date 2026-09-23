@@ -1,0 +1,37 @@
+{
+  "dominio": "",
+  "nome": "Clínica Lorenti",
+  "nomeGoogle": "Clínica Lorenti - Dr Marciel Lorenti | Harmonização Facial e Corporal",
+  "whatsapp": "5511947365480",
+  "whatsappExibir": "(11) 94736-5480",
+  "instagram": "https://www.instagram.com/drmarciellorenti/",
+  "instagramExibir": "@drmarciellorenti",
+  "endereco": {
+    "rua": "Rua Duarte da Costa, 42",
+    "bairro": "Vila Rafael de Oliveira",
+    "cidade": "Jundiaí",
+    "uf": "SP",
+    "cep": "13201-094"
+  },
+  "mapa": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica+Lorenti+Dr+Marciel+Lorenti%2C+Rua+Duarte+da+Costa+42%2C+Jundia%C3%AD+SP",
+  "avaliacoesGoogle": "https://www.google.com/search?q=Cl%C3%ADnica+Lorenti+Dr+Marciel+Lorenti+Jundia%C3%AD+avalia%C3%A7%C3%B5es",
+  "notaGoogle": "5,0",
+  "totalAvaliacoes": "73",
+  "horario": "Segunda a sexta, até as 19h",
+  "horarioSchema": "",
+  "atendemos": ["Jundiaí", "Várzea Paulista", "Campo Limpo Paulista", "Itupeva", "Louveira", "Cabreúva", "Vinhedo"],
+  "credito": "https://www.instagram.com/credialta.sites/",
+  "mensagens": {
+    "avaliacao": "Olá! Vim pelo site e gostaria de agendar uma *avaliação* na Clínica Lorenti.",
+    "duvida": "Olá! Vim pelo site e tenho uma *dúvida* sobre os tratamentos da Clínica Lorenti.",
+    "contato": "Olá! Vim pelo site da Clínica Lorenti.",
+    "servico": "Olá! Vim pelo site e gostaria de um orçamento para *{servico}*."
+  },
+  "pendencias": [
+    "horário completo: o Google só mostra que fecha às 19h (horario e horarioSchema no config)",
+    "73 avaliações muda com o tempo: conferir totalAvaliacoes antes de publicar",
+    "autorização escrita da paciente do antes e depois do laser Lavieen (print 10)",
+    "fotos reais da clínica em alta: a recepção vem de um story do Instagram",
+    "fotos dos cartões de tratamento são de banco de imagem: trocar por fotos reais dos procedimentos quando o Dr. Marciel mandar (tratamentos.json, campo foto)"
+  ]
+}

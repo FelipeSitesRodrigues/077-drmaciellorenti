@@ -1,0 +1,38 @@
+/* Gerado por scripts/baixar-fontes.mjs. Não editar à mão. */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/garamond-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/garamond-500-italico.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Garamond fallback';
+  src: local('Times New Roman'), local('Times'), local('Noto Serif');
+  size-adjust: 96.57%;
+  ascent-override: 104.28%;
+  descent-override: 30.86%;
+  line-gap-override: 0.00%;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/assets/fonts/montserrat-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat fallback';
+  src: local('Arial'), local('Helvetica'), local('Roboto');
+  size-adjust: 111.94%;
+  ascent-override: 86.48%;
+  descent-override: 22.42%;
+  line-gap-override: 0.00%;
+}

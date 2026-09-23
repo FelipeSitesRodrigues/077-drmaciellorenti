@@ -1,0 +1,186 @@
+/* ---------------------------------------------------------------- topo
+   Barra fina preta sobre o hero, com fio dourado embaixo que acende no meio (mockup).
+   O vidro fosco entra só depois de rolar e fica num ::before: backdrop-filter no próprio
+   header viraria o bloco de referência do menu do celular (position: fixed) e cortaria o
+   menu na altura da barra.                                                             */
+.topo {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--altura-topo);
+  color: var(--creme);
+}
+.topo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(180deg, rgb(8 7 6 / .94), rgb(11 10 8 / .8));
+  transition: background-color .4s ease, box-shadow .4s ease;
+}
+.topo::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  z-index: -1;
+  background:
+    radial-gradient(28% 100% at 58% 50%, rgb(242 198 107 / .95), transparent 70%),
+    linear-gradient(90deg, rgb(223 160 57 / .1), rgb(223 160 57 / .38) 50%, rgb(223 160 57 / .1));
+  transform-origin: 58% 50%;
+}
+.topo--rolado::before {
+  background: rgb(11 10 8 / .86);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+  box-shadow: 0 10px 30px -18px rgb(0 0 0 / .9);
+}
+.topo__barra { display: flex; align-items: center; height: 100%; gap: 24px; }
+
+.marca { display: flex; align-items: center; gap: 15px; flex: none; }
+.marca__mono { width: 52px; }
+.marca__nome { display: flex; flex-direction: column; gap: 3px; }
+.marca__clinica {
+  font: 500 20px/1 var(--fonte-texto);
+  letter-spacing: .055em;
+  text-transform: uppercase;
+  color: var(--creme);
+}
+.marca__linha {
+  font: 500 9.5px/1.25 var(--fonte-texto);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: #CFC6B8;
+}
+
+.menu { margin-left: auto; }
+.menu__lista { display: flex; align-items: center; gap: clamp(22px, 2.6vw, 38px); }
+.menu__lista a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 0;
+  font: 600 12.5px/1 var(--fonte-texto);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #EEE7DC;
+  transition: color .3s ease;
+}
+.menu__lista a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background: var(--fio-ouro);
+  transform: scaleX(0);
+  transition: transform .45s var(--ease-out);
+}
+@media (hover: hover) {
+  .menu__lista a:hover { color: var(--ouro-vivo); }
+  .menu__lista a:hover::after { transform: scaleX(1); }
+}
+.menu__lista a[aria-current='true'] { color: var(--ouro-vivo); }
+.menu__lista a[aria-current='true']::after { transform: scaleX(1); }
+.menu__cta, .menu__rodape { display: none; }
+.topo__cta { flex: none; margin-left: clamp(18px, 2.4vw, 40px); }
+.topo__menu { display: none; }
+
+/* o fio dourado do topo nasce do meio quando a página abre */
+@media (prefers-reduced-motion: no-preference) {
+  .js .topo::after { animation: risca-x 1.6s var(--ease-out) .15s backwards; }
+}
+
+/* ---------------------------------------------------------------- celular e tablet: menu em tela cheia */
+@media (max-width: 63.99em) {
+  .marca { gap: 11px; }
+  .marca__mono { width: 40px; }
+  .marca__clinica { font-size: 15px; letter-spacing: .06em; }
+  .marca__linha { display: none; }
+  .topo__cta { display: none; }
+
+  .topo__menu {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin-left: auto;
+    margin-right: -8px;
+    border-radius: 50%;
+    color: var(--ouro-vivo);
+  }
+  .topo__menu-linhas, .topo__menu-linhas::before, .topo__menu-linhas::after, .topo__menu-linhas span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform .45s var(--ease-out), opacity .25s ease;
+  }
+  .topo__menu-linhas { position: relative; background: transparent; }
+  .topo__menu-linhas::before, .topo__menu-linhas::after { content: ''; position: absolute; left: 0; }
+  .topo__menu-linhas::before { top: -7px; }
+  .topo__menu-linhas::after { top: 7px; width: 16px; left: 8px; }
+  .topo--aberto .topo__menu-linhas span { opacity: 0; transform: scaleX(.2); }
+  .topo--aberto .topo__menu-linhas::before { transform: translateY(7px) rotate(45deg); }
+  .topo--aberto .topo__menu-linhas::after { transform: translate(-8px, -7px) rotate(-45deg); width: 24px; }
+
+  .menu {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--altura-topo) + 28px) var(--margem) max(28px, env(safe-area-inset-bottom));
+    margin: 0;
+    background:
+      radial-gradient(80% 50% at 50% 100%, rgb(223 160 57 / .12), transparent 70%),
+      rgb(8 7 6 / .98);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility 0s linear .35s;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .topo--aberto .menu { opacity: 1; visibility: visible; transition: opacity .4s ease; }
+  .menu__lista { flex-direction: column; align-items: stretch; gap: 0; }
+  .menu__lista li { border-bottom: 1px solid rgb(223 160 57 / .16); }
+  .menu__lista a {
+    display: block;
+    padding: 17px 0;
+    font: 500 clamp(26px, 7.4vw, 32px)/1.05 var(--fonte-titulo);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--creme);
+  }
+  .menu__lista a::after { display: none; }
+  .menu__cta { display: inline-flex; width: 100%; margin-top: 30px; }
+  .menu__rodape { display: block; margin-top: auto; padding-top: 24px; font-size: 13px; color: var(--areia); text-align: center; }
+  @media (prefers-reduced-motion: no-preference) {
+    .topo--aberto .menu__lista li { animation: sobe .6s var(--ease-suave) backwards; }
+    .topo--aberto .menu__lista li:nth-child(2) { animation-delay: 40ms; }
+    .topo--aberto .menu__lista li:nth-child(3) { animation-delay: 80ms; }
+    .topo--aberto .menu__lista li:nth-child(4) { animation-delay: 120ms; }
+    .topo--aberto .menu__lista li:nth-child(5) { animation-delay: 160ms; }
+    .topo--aberto .menu__lista li:nth-child(6) { animation-delay: 200ms; }
+    .topo--aberto .menu__cta { animation: sobe .6s var(--ease-suave) 240ms backwards; }
+  }
+}
+/* o topo do mockup (marca com as duas linhas, menu e botão inteiro) só cabe de 1400 px pra
+   cima. Abaixo disso ele aperta em degraus, sem nunca esmagar o botão:
+   1180 a 1399: marca sem as linhas pequenas, menu um pouco menor, botão "Agendar";
+   1024 a 1179: sem o botão (fica o WhatsApp flutuante e o do hero), menu compacto.   */
+@media (min-width: 64em) and (max-width: 87.49em) {
+  .marca__linha { display: none; }
+  .marca__clinica { font-size: 18px; }
+  .menu__lista { gap: clamp(16px, 1.9vw, 26px); }
+  .menu__lista a { font-size: 12px; letter-spacing: .09em; }
+  .topo__cta-resto { display: none; }
+  .topo__cta { padding: 0 20px; }
+}
+@media (min-width: 64em) and (max-width: 73.74em) {
+  .marca__clinica { font-size: 16px; }
+  .menu__lista { gap: 18px; }
+  .menu__lista a { font-size: 11.5px; letter-spacing: .08em; }
+  .topo__cta { display: none; }
+}

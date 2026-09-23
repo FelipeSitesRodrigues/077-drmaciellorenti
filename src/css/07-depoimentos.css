@@ -1,0 +1,98 @@
+/* ---------------------------------------------------------------- depoimentos
+   Avaliações reais do Google (9, em três páginas de três, como os três pontos do
+   mockup). O trilho é scroll-snap nativo: arrasta no dedo, rola no teclado e as setas
+   só pedem a próxima página. Sem JS continua rolando.                                  */
+.depoimentos__grade {
+  display: grid;
+  grid-template-columns: minmax(0, 390px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(36px, 4.4vw, 64px);
+}
+.depoimentos__texto .titulo { font-size: clamp(2.1rem, 1.5rem + 1.5vw, 2.9rem); line-height: 1; }
+.depoimentos__texto p { max-width: 24em; margin-top: 20px; font-size: 14.5px; line-height: 1.7; }
+.depoimentos__texto .btn { margin-top: 28px; }
+
+.carrossel { min-width: 0; }
+.carrossel__trilho {
+  --por-vez: 3;
+  --vao: 22px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - var(--vao) * (var(--por-vez) - 1)) / var(--por-vez));
+  gap: var(--vao);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 6px 2px 18px;
+  margin: -6px -2px -18px;
+}
+.carrossel__trilho::-webkit-scrollbar { display: none; }
+.carrossel__trilho:focus-visible { outline-offset: 4px; }
+.depo { scroll-snap-align: start; }
+.depo figure {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 24px 22px;
+  border: 1px solid #ECE3D5;
+  border-radius: var(--raio);
+  background: linear-gradient(180deg, #FBF8F3, #F7F2EA);
+  box-shadow: 0 1px 0 rgb(255 255 255 / .85) inset, 0 16px 30px -24px rgb(60 42 18 / .5);
+  transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out);
+}
+@media (hover: hover) {
+  .depo figure:hover { transform: translateY(-3px); box-shadow: 0 1px 0 rgb(255 255 255 / .85) inset, 0 22px 36px -24px rgb(60 42 18 / .6); }
+}
+.depo__topo { display: flex; align-items: center; gap: 14px; }
+.depo__g { width: 26px; height: 26px; }
+.depo__estrelas { width: 92px; height: 17px; fill: #C38A2E; }
+.depo__texto { margin-top: 16px; flex: 1; font-size: 13px; line-height: 1.6; color: #4F483E; }
+.depo__nome { margin-top: 16px; font-size: 13px; font-weight: 500; color: #6B6255; }
+
+.carrossel__controles { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; }
+.carrossel__seta {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--tinta);
+  transition: background-color .3s ease, color .3s ease, opacity .3s ease, transform .3s var(--ease-out);
+}
+.carrossel__seta .i { width: 20px; height: 20px; }
+.carrossel__seta:disabled { opacity: .3; cursor: default; }
+@media (hover: hover) {
+  .carrossel__seta:not(:disabled):hover { background: rgb(168 115 31 / .12); color: var(--ouro-tinta); }
+}
+.carrossel__seta:not(:disabled):active { transform: scale(.92); }
+.carrossel__pontos { display: flex; align-items: center; }
+.carrossel__ponto { display: grid; place-items: center; width: 24px; height: 24px; }
+/* o ponto aceso estica só com transform (sem animar largura) */
+.carrossel__ponto::before {
+  content: '';
+  width: 18px;
+  height: 7px;
+  border-radius: 99px;
+  background: #CDBFAA;
+  transform: scaleX(.39);
+  transition: transform .45s var(--ease-out), background-color .3s ease;
+}
+.carrossel__ponto[aria-current='true']::before { transform: none; background: var(--tinta); }
+
+@media (max-width: 63.99em) {
+  .depoimentos__grade { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .carrossel__trilho { --por-vez: 2; --vao: 14px; }
+}
+@media (max-width: 39.99em) {
+  .carrossel { margin-inline: calc(var(--margem) * -1); }
+  .carrossel__trilho {
+    --por-vez: 1;
+    grid-auto-columns: 84%;
+    padding-inline: var(--margem);
+    margin-inline: 0;
+    scroll-padding-inline: var(--margem);
+  }
+  .depoimentos__texto .btn { width: 100%; }
+}

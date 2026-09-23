@@ -1,0 +1,31 @@
+  <header class="topo" id="topo">
+    <div class="container topo__barra">
+      <a class="marca" href="#inicio" aria-label="Clínica Lorenti, voltar ao início">
+        <img data-img="monograma" data-img-max="132" sizes="52px" alt="" class="marca__mono">
+        <span class="marca__nome" aria-hidden="true">
+          <span class="marca__clinica">Clínica Lorenti</span>
+          <span class="marca__linha">Doutor Marciel Lorenti</span>
+          <span class="marca__linha">Estética avançada</span>
+        </span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Principal">
+        <ul class="menu__lista" role="list">
+          <li><a href="#tratamentos">Tratamentos</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a class="btn btn--ouro menu__cta" href="{{wa:avaliacao}}" target="_blank" rel="noopener" data-zap="menu-celular"><i data-i="whatsapp-logo" data-w="regular"></i>Agendar avaliação</a>
+        <p class="menu__rodape">{{cfg.endereco.rua}} · {{cfg.endereco.cidade}}/{{cfg.endereco.uf}}</p>
+      </nav>
+
+      <a class="btn btn--ouro btn--topo topo__cta" href="{{wa:avaliacao}}" target="_blank" rel="noopener" data-zap="topo"><i data-i="calendar-blank" data-w="regular"></i><span>Agendar<span class="topo__cta-resto"> avaliação</span></span></a>
+
+      <button class="topo__menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <span class="topo__menu-linhas" aria-hidden="true"><span></span></span>
+      </button>
+    </div>
+  </header>

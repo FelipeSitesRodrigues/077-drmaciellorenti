@@ -1,0 +1,364 @@
+/* ---------------------------------------------------------------- tokens
+   Cores medidas no mockup aprovado: preto quente #0B0A08, marfim #F3EDE5 e o ouro do
+   monograma (#FCF592 reflexo, #F2C66B vivo, #DFA039 ouro, #AB6B07 velho), só em acento.
+   O botão é ouro escovado: escuro nas pontas, claro no meio (amostrado pixel a pixel).
+   Cada seção escolhe o fundo com uma classe (.secao--escura ou --clara) e o fundo
+   acerta título, texto, rótulo e destaque pelas variáveis --cor-*.                      */
+:root {
+  color-scheme: dark;
+  --preto: #0B0A08;
+  --preto-fundo: #080706;
+  --carvao: #15130F;
+  --carvao-alto: #1C1914;
+  --linha-escura: #2D271E;
+  --marfim: #F3EDE5;
+  --marfim-claro: #F8F4EE;
+  --linha-clara: #E2D6C4;
+  --tinta: #1B1712;
+  --texto-marfim: #5E564B;
+  --areia: #B7AEA2;
+  --nevoa: #DAD3C8;
+  --creme: #F6F1E9;
+  --ouro-reflexo: #FCF592;
+  --ouro-vivo: #F2C66B;
+  --ouro: #DFA039;
+  --ouro-velho: #AB6B07;
+  --ouro-tinta: #875C12;
+  --ouro-titulo: #A6721D;
+
+  --ouro-escovado: linear-gradient(100deg, #B8873A 0%, #D3A44E 15%, #EDC572 36%, #F8DC94 50%, #E9C067 64%, #CD9C46 85%, #B98A3D 100%);
+  --ouro-metal: linear-gradient(100deg, #E9B452 0%, #F7D98E 22%, #FFEDB6 34%, #EFC064 48%, #DFA13E 64%, #F4CF7E 82%, #E6AE4B 100%);
+  --fio-ouro: linear-gradient(90deg, transparent, rgb(223 160 57 / .55) 18%, rgb(242 198 107 / .9) 50%, rgb(223 160 57 / .55) 82%, transparent);
+
+  --fonte-titulo: 'EB Garamond', 'Garamond fallback', 'Times New Roman', Georgia, serif;
+  --fonte-texto: 'Montserrat', 'Montserrat fallback', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  --container: 1280px;
+  --margem: clamp(20px, 5.5vw, 80px);
+  --secao-y: clamp(46px, 3.5vw, 54px);
+  --altura-topo: 80px;
+  --raio: 4px;
+  --raio-card: 6px;
+
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --ease-suave: cubic-bezier(.16, 1, .3, 1);
+
+  /* contexto (escuro é o padrão da página) */
+  --cor-fundo: var(--preto);
+  --cor-titulo: var(--creme);
+  --cor-texto: var(--areia);
+  --cor-rotulo: #D6A450;
+  --cor-destaque: var(--ouro-vivo);
+  --cor-icone: var(--ouro);
+  --cor-foco: var(--ouro-vivo);
+}
+@media (max-width: 63.99em) {
+  :root { --altura-topo: 68px; }
+}
+
+/* ---------------------------------------------------------------- reset */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--altura-topo) + 8px);
+  background: var(--preto);
+  scrollbar-color: #5A4A30 var(--preto-fundo);
+}
+body {
+  min-height: 100vh;
+  background: var(--preto);
+  color: var(--cor-texto);
+  font: 400 15px/1.68 var(--fonte-texto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  overflow-x: clip;
+  caret-color: var(--ouro);
+}
+img, picture, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; padding: 0; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; padding: 0; }
+h1, h2, h3 { font-weight: inherit; font-size: inherit; line-height: inherit; }
+em { font-style: italic; }
+strong { font-weight: 700; }
+figure { margin: 0; }
+::selection { background: rgb(223 160 57 / .88); color: #120E08; }
+:focus-visible { outline: 2px solid var(--cor-foco); outline-offset: 3px; border-radius: 2px; }
+[tabindex='-1']:focus { outline: none; }
+[hidden] { display: none !important; }
+
+.pular {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  padding: 13px 18px;
+  border-radius: var(--raio);
+  background: var(--ouro-escovado);
+  color: #17120B;
+  font: 700 12px/1 var(--fonte-texto);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transform: translateY(-160%);
+  transition: transform .2s var(--ease-out);
+}
+.pular:focus { transform: none; }
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container { width: min(var(--container), 100% - var(--margem) * 2); margin-inline: auto; }
+.i { width: 24px; height: 24px; flex: none; fill: currentColor; }
+
+/* ---------------------------------------------------------------- fundos das seções */
+.secao { position: relative; padding-block: var(--secao-y); background: var(--cor-fundo); isolation: isolate; }
+/* escuro: preto quente com um halo dourado muito difuso e vinheta nos cantos, como no mockup */
+.secao--escura {
+  --cor-fundo: var(--preto);
+  --cor-titulo: var(--creme);
+  --cor-texto: var(--areia);
+  --cor-rotulo: #D6A450;
+  --cor-destaque: var(--ouro-vivo);
+  --cor-icone: var(--ouro);
+  --cor-foco: var(--ouro-vivo);
+  color-scheme: dark;
+  color: var(--cor-texto);
+  background:
+    radial-gradient(60% 55% at 50% 0%, rgb(223 160 57 / .06), transparent 70%),
+    radial-gradient(90% 90% at 50% 50%, transparent 55%, rgb(0 0 0 / .45)),
+    var(--preto);
+}
+/* marfim: limpo, com um degradê levíssimo; o luxo vem da tipografia e do espaço */
+.secao--clara {
+  --cor-fundo: var(--marfim);
+  --cor-titulo: var(--tinta);
+  --cor-texto: var(--texto-marfim);
+  --cor-rotulo: var(--ouro-tinta);
+  --cor-destaque: var(--ouro-titulo);
+  --cor-icone: #A8731F;
+  --cor-foco: var(--ouro-tinta);
+  color-scheme: light;
+  color: var(--cor-texto);
+  background:
+    radial-gradient(70% 90% at 12% 0%, rgb(255 255 255 / .7), transparent 70%),
+    radial-gradient(60% 80% at 100% 100%, rgb(226 214 196 / .45), transparent 70%),
+    var(--marfim);
+}
+
+/* ---------------------------------------------------------------- abaixo da dobra
+   content-visibility: o navegador só faz layout e pintura dessas seções quando elas
+   chegam perto da tela. No primeiro carregamento (e a cada fonte que chega e troca) o
+   trabalho fica só no hero e nos selos: o LCP do celular pintava 0,9 s depois porque
+   esperava o layout da página inteira. As alturas são estimativas; com "auto" o navegador
+   guarda a altura real depois da primeira vez.                                           */
+.sobre, .tratamentos, .resultados, .clinica, .depoimentos, .duvidas, .cta, .rodape { content-visibility: auto; }
+/* no primeiro clique numa âncora (_base.js) tudo é desenhado de uma vez, pra rolagem parar no lugar certo */
+.cv-pronto :is(.sobre, .tratamentos, .resultados, .clinica, .depoimentos, .duvidas, .cta, .rodape) { content-visibility: visible; }
+.sobre { contain-intrinsic-size: auto 560px; }
+.tratamentos { contain-intrinsic-size: auto 965px; }
+.resultados { contain-intrinsic-size: auto 420px; }
+.clinica { contain-intrinsic-size: auto 560px; }
+.depoimentos { contain-intrinsic-size: auto 400px; }
+.duvidas { contain-intrinsic-size: auto 480px; }
+.cta { contain-intrinsic-size: auto 300px; }
+.rodape { contain-intrinsic-size: auto 400px; }
+@media (max-width: 63.99em) {
+  .sobre { contain-intrinsic-size: auto 1500px; }
+  .tratamentos { contain-intrinsic-size: auto 1360px; }
+  .resultados { contain-intrinsic-size: auto 820px; }
+  .clinica { contain-intrinsic-size: auto 900px; }
+  .depoimentos { contain-intrinsic-size: auto 740px; }
+  .duvidas { contain-intrinsic-size: auto 760px; }
+  .cta { contain-intrinsic-size: auto 640px; }
+  .rodape { contain-intrinsic-size: auto 900px; }
+}
+/* tablet: os cartões de tratamento com foto vão em duas colunas e a seção fica mais alta que no celular */
+@media (min-width: 40em) and (max-width: 63.99em) {
+  .tratamentos { contain-intrinsic-size: auto 1745px; }
+}
+
+/* ---------------------------------------------------------------- tipografia */
+.rotulo {
+  display: block;
+  color: var(--cor-rotulo);
+  font: 600 11.5px/1.35 var(--fonte-texto);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+}
+.titulo {
+  color: var(--cor-titulo);
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 1.45rem + 1.75vw, 3.1rem);
+  line-height: 1.04;
+  letter-spacing: -.004em;
+  text-wrap: balance;
+}
+.rotulo + .titulo { margin-top: 12px; }
+.destaque { color: var(--cor-destaque); }
+.titulo .destaque { font-style: normal; }
+/* ouro metálico no título do hero, como o monograma polido do logo */
+.ouro-metal {
+  background: var(--ouro-metal);
+  background-size: 220% 100%;
+  background-position: 40% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding-right: .08em; /* o itálico sai pela direita e o clip cortava a ponta do "r" */
+}
+.quebra { display: none; }
+@media (min-width: 64em) {
+  .quebra { display: inline; }
+}
+
+/* ---------------------------------------------------------------- botões (retângulo de canto quase reto, como no mockup) */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 50px;
+  padding: 0 28px;
+  border: 1px solid transparent;
+  border-radius: var(--raio);
+  font: 700 12.5px/1.1 var(--fonte-texto);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform .35s var(--ease-out), box-shadow .45s var(--ease-out), background-color .3s ease, border-color .3s ease, color .3s ease, filter .3s ease;
+}
+.btn .i { width: 19px; height: 19px; }
+.btn:active { transform: scale(.98); transition-duration: .12s; }
+
+.btn--ouro {
+  --cor-foco: var(--ouro-vivo);
+  background: var(--ouro-escovado);
+  color: #17120B;
+  box-shadow: inset 0 1px 0 rgb(255 246 214 / .6), inset 0 -1px 0 rgb(122 82 18 / .35), 0 10px 26px -14px rgb(223 160 57 / .75);
+}
+/* brilho que atravessa o metal ao passar o mouse */
+.btn--ouro::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 32%, rgb(255 252 236 / .75) 49%, transparent 66%);
+  transform: translateX(-110%);
+  transition: transform .9s var(--ease-out);
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .btn--ouro:hover { transform: translateY(-2px); filter: saturate(1.06) brightness(1.04); box-shadow: inset 0 1px 0 rgb(255 246 214 / .7), inset 0 -1px 0 rgb(122 82 18 / .35), 0 16px 32px -14px rgb(223 160 57 / .9); }
+  .btn--ouro:hover::after { transform: translateX(110%); }
+  .btn--ouro:active { transform: translateY(0) scale(.98); }
+}
+
+.btn--contorno {
+  border-color: rgb(223 160 57 / .8);
+  color: var(--ouro-vivo);
+  background: rgb(11 10 8 / .2);
+}
+.btn--contorno-claro { color: var(--creme); }
+@media (hover: hover) {
+  .btn--contorno:hover { border-color: var(--ouro-vivo); background: rgb(223 160 57 / .12); color: #FBE3A6; transform: translateY(-2px); }
+  .btn--contorno:active { transform: translateY(0) scale(.98); }
+}
+/* botão do topo e do rodapé: mais baixo */
+.btn--topo { min-height: 46px; padding: 0 24px; font-size: 12px; }
+
+/* ---------------------------------------------------------------- cabeçalho de seção centralizado */
+.cab { margin-bottom: clamp(30px, 3vw, 40px); }
+.cab--centro { text-align: center; }
+.cab--centro .titulo { margin-inline: auto; }
+.cab__apoio { margin-top: 12px; color: var(--cor-texto); font-size: clamp(14.5px, 14px + .2vw, 16px); }
+
+/* ---------------------------------------------------------------- assinatura do Dr. Marciel (SVG da Whisper) */
+.assinatura { display: block; aspect-ratio: 642 / 88; height: auto; fill: currentColor; overflow: visible; }
+.assinatura use { fill: currentColor; stroke: currentColor; stroke-width: 1.6px; stroke-linejoin: round; }
+
+/* ---------------------------------------------------------------- botão flutuante do WhatsApp (aparece depois do hero) */
+.zap-flutuante {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--ouro-escovado);
+  color: #17120B;
+  box-shadow: inset 0 1px 0 rgb(255 246 214 / .6), 0 14px 30px -10px rgb(0 0 0 / .6), 0 0 0 1px rgb(122 82 18 / .25);
+  transition: transform .5s var(--ease-out), opacity .4s ease, box-shadow .3s ease;
+}
+.zap-flutuante .i { width: 30px; height: 30px; }
+.js .zap-flutuante:not(.visivel) { opacity: 0; transform: translateY(16px) scale(.7); pointer-events: none; }
+@media (hover: hover) {
+  .zap-flutuante:hover { transform: translateY(-3px) scale(1.04); box-shadow: inset 0 1px 0 rgb(255 246 214 / .7), 0 18px 36px -10px rgb(0 0 0 / .7), 0 0 0 1px rgb(122 82 18 / .25); }
+}
+
+/* ---------------------------------------------------------------- revelação no scroll
+   O padrão é visível. Só esconde com JS ligado e sem "reduzir movimento", e o JS
+   (_base.js) marca .visivel quando o elemento entra na tela.
+   Parado, tudo esconde SÓ com opacidade: o Chrome conta o clip-path no
+   IntersectionObserver e um elemento recortado a zero nunca "entra na tela"
+   (bug do 067). Recorte e escala ficam só no primeiro quadro da animação.
+   Keyframes com fill-mode backwards: acabou a entrada, o elemento volta ao estilo
+   normal e o hover não fica preso nela.                                              */
+@keyframes sobe { from { opacity: 0; transform: translateY(20px); } }
+@keyframes aparece { from { opacity: 0; } }
+@keyframes foto-sobe { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes foto-lado { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes assenta { from { transform: scale(1.1); } }
+@keyframes foco { from { opacity: 0; filter: blur(10px); transform: scale(1.04); } }
+@keyframes escreve { from { clip-path: inset(-20% 100% -40% -2%); } to { clip-path: inset(-20% -2% -40% -2%); } }
+@keyframes risca-x { from { transform: scaleX(0); } }
+@keyframes risca-y { from { transform: scaleY(0); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-revela]:not(.visivel) { opacity: 0; }
+  .js [data-revela].visivel { animation: sobe .9s var(--ease-suave) calc(var(--i, 0) * 80ms) backwards; }
+  /* lista que entra em sequência (cartões): o filho usa --i pro atraso */
+  .js [data-revela-lista]:not(.visivel) > * { opacity: 0; }
+  .js [data-revela-lista].visivel > * { animation: sobe .85s var(--ease-suave) calc(var(--i, 0) * 75ms) backwards; }
+  .js [data-revela="foto"].visivel { animation: foto-sobe 1.15s var(--ease-in-out) backwards; }
+  .js [data-revela="foto"].visivel img { animation: assenta 1.8s var(--ease-out) backwards; }
+  .js [data-revela="foto-lado"].visivel { animation: foto-lado 1.3s var(--ease-in-out) backwards; }
+  .js [data-revela="foto-lado"].visivel img { animation: assenta 2s var(--ease-out) backwards; }
+  .js [data-revela="foco"].visivel { animation: foco 1.4s var(--ease-out) backwards; }
+  .js [data-revela="assinatura"].visivel { animation: aparece .4s ease backwards; }
+  .js [data-revela="assinatura"].visivel .assinatura { animation: escreve 1.9s var(--ease-in-out) .15s backwards; }
+  .js [data-revela="assinatura"].visivel p { animation: sobe .8s var(--ease-suave) 1.2s backwards; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+}

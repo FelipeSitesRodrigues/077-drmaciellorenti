@@ -1,0 +1,71 @@
+/* ---------------------------------------------------------------- rodapé
+   Quatro colunas separadas por fios dourados verticais (mockup), o botão de agendar à
+   direita e a linha de copyright embaixo de um fio fino.                                */
+.rodape { position: relative; background: radial-gradient(70% 120% at 50% 0%, rgb(223 160 57 / .05), transparent 60%), var(--preto-fundo); color: #A69E92; padding-top: clamp(48px, 4.2vw, 60px); }
+.rodape::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 1px; background: var(--fio-ouro); opacity: .45; }
+.rodape__grade {
+  display: grid;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1.25fr) minmax(0, .72fr) minmax(0, 1.3fr) auto;
+  gap: 0;
+  padding-bottom: clamp(36px, 3.4vw, 48px);
+}
+.rodape__grade > * { position: relative; padding-inline: clamp(18px, 2.3vw, 38px); }
+.rodape__grade > :first-child { padding-left: 0; }
+.rodape__col::before, .rodape__contato::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: linear-gradient(180deg, rgb(223 160 57 / .45), rgb(223 160 57 / .08));
+}
+.rodape__marca { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.rodape__mono { width: 66px; }
+.rodape__nome { margin-top: 14px; font: 500 19px/1 var(--fonte-texto); letter-spacing: .06em; text-transform: uppercase; color: var(--creme); }
+.rodape__linha { margin-top: 6px; font: 500 10px/1.3 var(--fonte-texto); letter-spacing: .26em; text-transform: uppercase; color: #BDB4A7; }
+.rodape__redes { display: flex; gap: 14px; margin-top: 22px; }
+.rodape__redes a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgb(223 160 57 / .55);
+  border-radius: 50%;
+  color: var(--ouro-vivo);
+  transition: background-color .3s ease, color .3s ease, transform .4s var(--ease-out);
+}
+.rodape__redes .i { width: 21px; height: 21px; }
+@media (hover: hover) {
+  .rodape__redes a:hover { background: var(--ouro-escovado); color: #17120B; transform: translateY(-2px); }
+}
+.rodape__titulo { font: 700 12px/1 var(--fonte-texto); letter-spacing: .16em; text-transform: uppercase; color: #D9A64E; }
+.rodape__col ul { display: grid; gap: 2px; margin-top: 16px; }
+.rodape__col a, .rodape__contato span { display: inline-block; padding-block: 3px; font-size: 13.5px; line-height: 1.5; color: #C4BBAE; transition: color .25s ease; }
+@media (hover: hover) {
+  .rodape__col a:hover { color: var(--ouro-vivo); }
+}
+.rodape__contato ul { gap: 10px; }
+.rodape__contato li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; }
+.rodape__contato .i { width: 19px; height: 19px; margin-top: 4px; color: var(--ouro); }
+.rodape__contato a { color: #E2DACE; }
+.rodape__cta { padding-right: 0; }
+
+.rodape__base { display: flex; justify-content: space-between; gap: 12px 32px; flex-wrap: wrap; padding-block: 22px 26px; border-top: 1px solid rgb(223 160 57 / .16); font-size: 12px; color: #8E867A; }
+.rodape__base a { color: #BFB6A9; text-decoration: underline; text-decoration-color: rgb(223 160 57 / .45); text-underline-offset: 3px; }
+@media (hover: hover) {
+  .rodape__base a:hover { color: var(--ouro-vivo); }
+}
+
+@media (max-width: 79.99em) {
+  .rodape__grade { grid-template-columns: minmax(0, 230px) repeat(3, minmax(0, 1fr)); row-gap: 36px; }
+  .rodape__cta { grid-column: 1 / -1; padding-left: 0; }
+}
+@media (max-width: 47.99em) {
+  .rodape__grade { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 34px; }
+  .rodape__grade > * { padding-inline: 0; }
+  .rodape__col::before, .rodape__contato::before { display: none; }
+  .rodape__marca, .rodape__contato, .rodape__cta { grid-column: 1 / -1; }
+  .rodape__cta .btn { width: 100%; }
+  .rodape__base { flex-direction: column; text-align: center; align-items: center; }
+}

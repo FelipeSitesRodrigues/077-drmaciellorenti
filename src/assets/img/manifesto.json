@@ -1,0 +1,462 @@
+{
+ "hero-fundo-1280.avif": {
+  "w": 1280,
+  "h": 445,
+  "kb": 12
+ },
+ "hero-fundo-1280.webp": {
+  "w": 1280,
+  "h": 445,
+  "kb": 22
+ },
+ "hero-fundo-1680.avif": {
+  "w": 1680,
+  "h": 584,
+  "kb": 18
+ },
+ "hero-fundo-1680.webp": {
+  "w": 1680,
+  "h": 584,
+  "kb": 31
+ },
+ "hero-fundo-2127.avif": {
+  "w": 2127,
+  "h": 739,
+  "kb": 23
+ },
+ "hero-fundo-2127.webp": {
+  "w": 2127,
+  "h": 739,
+  "kb": 41
+ },
+ "hero-dr-560.avif": {
+  "w": 560,
+  "h": 594,
+  "kb": 27
+ },
+ "hero-dr-560.webp": {
+  "w": 560,
+  "h": 594,
+  "kb": 44
+ },
+ "hero-dr-840.avif": {
+  "w": 840,
+  "h": 891,
+  "kb": 55
+ },
+ "hero-dr-840.webp": {
+  "w": 840,
+  "h": 891,
+  "kb": 89
+ },
+ "hero-dr-967.avif": {
+  "w": 967,
+  "h": 1026,
+  "kb": 66
+ },
+ "hero-dr-967.webp": {
+  "w": 967,
+  "h": 1026,
+  "kb": 110
+ },
+ "hero-celular-480.avif": {
+  "w": 480,
+  "h": 523,
+  "kb": 10
+ },
+ "hero-celular-480.webp": {
+  "w": 480,
+  "h": 523,
+  "kb": 15
+ },
+ "hero-celular-760.avif": {
+  "w": 760,
+  "h": 828,
+  "kb": 20
+ },
+ "hero-celular-760.webp": {
+  "w": 760,
+  "h": 828,
+  "kb": 30
+ },
+ "hero-celular-900.avif": {
+  "w": 900,
+  "h": 980,
+  "kb": 26
+ },
+ "hero-celular-900.webp": {
+  "w": 900,
+  "h": 980,
+  "kb": 40
+ },
+ "sobre-dr-480.avif": {
+  "w": 480,
+  "h": 466,
+  "kb": 10
+ },
+ "sobre-dr-480.webp": {
+  "w": 480,
+  "h": 466,
+  "kb": 13
+ },
+ "sobre-dr-720.avif": {
+  "w": 720,
+  "h": 699,
+  "kb": 18
+ },
+ "sobre-dr-720.webp": {
+  "w": 720,
+  "h": 699,
+  "kb": 24
+ },
+ "sobre-dr-960.avif": {
+  "w": 960,
+  "h": 932,
+  "kb": 29
+ },
+ "sobre-dr-960.webp": {
+  "w": 960,
+  "h": 932,
+  "kb": 37
+ },
+ "clinica-recepcao-532.avif": {
+  "w": 532,
+  "h": 774,
+  "kb": 28
+ },
+ "clinica-recepcao-532.webp": {
+  "w": 532,
+  "h": 774,
+  "kb": 44
+ },
+ "resultado-laser-antes-367.avif": {
+  "w": 367,
+  "h": 330,
+  "kb": 8
+ },
+ "resultado-laser-antes-367.webp": {
+  "w": 367,
+  "h": 330,
+  "kb": 10
+ },
+ "resultado-laser-depois-367.avif": {
+  "w": 367,
+  "h": 330,
+  "kb": 8
+ },
+ "resultado-laser-depois-367.webp": {
+  "w": 367,
+  "h": 330,
+  "kb": 9
+ },
+ "trat-toxina-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-toxina-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 6
+ },
+ "trat-toxina-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 10
+ },
+ "trat-toxina-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 14
+ },
+ "trat-preenchimento-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-preenchimento-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 6
+ },
+ "trat-preenchimento-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 7
+ },
+ "trat-preenchimento-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 12
+ },
+ "trat-bioestimulador-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-bioestimulador-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 7
+ },
+ "trat-bioestimulador-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 8
+ },
+ "trat-bioestimulador-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 13
+ },
+ "trat-emagrecimento-facial-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 2
+ },
+ "trat-emagrecimento-facial-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 3
+ },
+ "trat-emagrecimento-facial-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 4
+ },
+ "trat-emagrecimento-facial-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 6
+ },
+ "trat-laser-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 3
+ },
+ "trat-laser-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-laser-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 7
+ },
+ "trat-laser-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 10
+ },
+ "trat-criolipolise-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 3
+ },
+ "trat-criolipolise-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 5
+ },
+ "trat-criolipolise-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 6
+ },
+ "trat-criolipolise-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 11
+ },
+ "trat-gluteo-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 3
+ },
+ "trat-gluteo-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-gluteo-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 6
+ },
+ "trat-gluteo-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 9
+ },
+ "trat-emagrecimento-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 3
+ },
+ "trat-emagrecimento-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 5
+ },
+ "trat-emagrecimento-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 7
+ },
+ "trat-emagrecimento-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 10
+ },
+ "trat-peeling-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 3
+ },
+ "trat-peeling-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-peeling-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 6
+ },
+ "trat-peeling-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 7
+ },
+ "trat-microagulhamento-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-microagulhamento-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 6
+ },
+ "trat-microagulhamento-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 9
+ },
+ "trat-microagulhamento-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 13
+ },
+ "trat-ultrassom-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 5
+ },
+ "trat-ultrassom-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 7
+ },
+ "trat-ultrassom-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 9
+ },
+ "trat-ultrassom-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 14
+ },
+ "trat-enzimas-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 3
+ },
+ "trat-enzimas-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-enzimas-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 7
+ },
+ "trat-enzimas-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 9
+ },
+ "trat-capilar-360.avif": {
+  "w": 360,
+  "h": 270,
+  "kb": 4
+ },
+ "trat-capilar-360.webp": {
+  "w": 360,
+  "h": 270,
+  "kb": 5
+ },
+ "trat-capilar-640.avif": {
+  "w": 640,
+  "h": 480,
+  "kb": 8
+ },
+ "trat-capilar-640.webp": {
+  "w": 640,
+  "h": 480,
+  "kb": 10
+ },
+ "trat-vasinhos-360.avif": {
+  "w": 360,
+  "h": 269,
+  "kb": 2
+ },
+ "trat-vasinhos-360.webp": {
+  "w": 360,
+  "h": 269,
+  "kb": 2
+ },
+ "trat-vasinhos-640.avif": {
+  "w": 640,
+  "h": 479,
+  "kb": 3
+ },
+ "trat-vasinhos-640.webp": {
+  "w": 640,
+  "h": 479,
+  "kb": 4
+ },
+ "cta-dr-676.avif": {
+  "w": 676,
+  "h": 274,
+  "kb": 5
+ },
+ "cta-dr-676.webp": {
+  "w": 676,
+  "h": 274,
+  "kb": 6
+ },
+ "monograma-66.webp": {
+  "w": 66,
+  "h": 69,
+  "kb": 3
+ },
+ "monograma-92.webp": {
+  "w": 92,
+  "h": 97,
+  "kb": 5
+ },
+ "monograma-132.webp": {
+  "w": 132,
+  "h": 139,
+  "kb": 8
+ },
+ "monograma-198.webp": {
+  "w": 198,
+  "h": 208,
+  "kb": 13
+ }
+}

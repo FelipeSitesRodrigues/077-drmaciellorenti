@@ -1,0 +1,226 @@
+[
+  {
+    "id": "toxina",
+    "nome": "Toxina botulínica",
+    "descricao": "Suaviza expressões e previne rugas",
+    "mensagem": "toxina botulínica",
+    "icone": "syringe",
+    "vitrine": true,
+    "rodape": true,
+    "foto": {
+      "arquivo": "toxina.jpg",
+      "recorte": [0.26, 0.36, 0.74],
+      "foco": "45% 50%",
+      "credito": "Sum Sum / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/um-profissional-administra-injecao-estetica-na-testa-da-mulher-0I5csvv8RFA"
+    }
+  },
+  {
+    "id": "preenchimento",
+    "nome": "Preenchimento facial",
+    "descricao": "Mais harmonia e contorno para o rosto",
+    "mensagem": "preenchimento facial",
+    "icone": "drop",
+    "vitrine": true,
+    "rodape": true,
+    "foto": {
+      "arquivo": "preenchimento.jpg",
+      "recorte": [0.06, 0, 0.889],
+      "foco": "50% 50%",
+      "credito": "Sam Moghadam / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/woman-holding-pen-and-white-cotton-candy-l9VjM-Pp7-M"
+    }
+  },
+  {
+    "id": "bioestimulador",
+    "nome": "Bioestimulador de colágeno",
+    "descricao": "Estimula a produção natural de colágeno",
+    "mensagem": "bioestimulador de colágeno",
+    "icone": "atom",
+    "vitrine": true,
+    "rodape": true,
+    "foto": {
+      "arquivo": "bioestimulador.jpg",
+      "recorte": [0, 0.14, 1],
+      "foco": "45% 50%",
+      "credito": "Alexander Mass / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/uma-mulher-que-obtem-seus-dentes-verificados-por-um-doutor-QLbNv_grJuo"
+    }
+  },
+  {
+    "id": "emagrecimento-facial",
+    "nome": "Emagrecimento facial",
+    "descricao": "Reduz a papada e define o contorno do rosto",
+    "mensagem": "emagrecimento facial e papada",
+    "icone": "user-focus",
+    "vitrine": true,
+    "rodape": false,
+    "foto": {
+      "arquivo": "emagrecimento-facial.jpg",
+      "recorte": [0.055, 0, 0.889],
+      "foco": "50% 50%",
+      "credito": "William Priess / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/mulher-no-topo-preto-da-alca-do-espaguete-DSJi-1hjGzs"
+    }
+  },
+  {
+    "id": "laser",
+    "nome": "Laser e tecnologias",
+    "descricao": "Tratamentos avançados para rejuvenescimento e qualidade da pele",
+    "mensagem": "laser e tecnologias",
+    "icone": "lightning",
+    "vitrine": true,
+    "rodape": true,
+    "foto": {
+      "arquivo": "laser.jpg",
+      "recorte": [0.05, 0, 0.889],
+      "foco": "53% 50%",
+      "credito": "Sam Moghadam / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/pessoa-segurando-dispositivo-branco-e-laranja-IgAa6frsVyQ"
+    }
+  },
+  {
+    "id": "criolipolise",
+    "nome": "Criolipólise",
+    "descricao": "Redução de gordura localizada",
+    "mensagem": "criolipólise",
+    "icone": "snowflake",
+    "vitrine": true,
+    "rodape": true,
+    "foto": {
+      "arquivo": "criolipolise.jpg",
+      "recorte": [0.055, 0, 0.889],
+      "foco": "50% 50%",
+      "credito": "Patient Perfect / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/tratamento-abdominal-com-aparelho-e-creme-FIkfmwPTKqM"
+    }
+  },
+  {
+    "id": "gluteo",
+    "nome": "Harmonização glútea",
+    "descricao": "Mais definição e proporção corporal",
+    "mensagem": "harmonização glútea",
+    "icone": "hourglass-simple",
+    "vitrine": true,
+    "rodape": true,
+    "foto": {
+      "arquivo": "gluteo.jpg",
+      "recorte": [0.06, 0, 0.889],
+      "foco": "57% 50%",
+      "credito": "Sasun Bughdaryan / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/mulher-em-leggings-pretas-de-pe-perto-da-cortina-branca-9EeMs4LxdTc"
+    }
+  },
+  {
+    "id": "emagrecimento",
+    "nome": "Protocolos de emagrecimento",
+    "descricao": "Acompanhamento personalizado e seguro",
+    "mensagem": "protocolo de emagrecimento",
+    "icone": "ruler",
+    "vitrine": true,
+    "rodape": true,
+    "foto": {
+      "arquivo": "emagrecimento.jpg",
+      "recorte": [0.08, 0, 0.889],
+      "foco": "45% 50%",
+      "credito": "Huha Inc. / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/pessoa-medindo-quadril-com-fita-adesiva-OfVESgqrbJc"
+    }
+  },
+  {
+    "id": "peeling",
+    "nome": "Peeling químico",
+    "descricao": "Renova a pele e suaviza manchas e marcas de acne",
+    "mensagem": "peeling químico",
+    "icone": "flask",
+    "vitrine": false,
+    "rodape": false,
+    "foto": {
+      "arquivo": "peeling.jpg",
+      "recorte": [0, 0.45, 1],
+      "foco": "40% 50%",
+      "credito": "kimia kazemi / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/esteticista-aplicando-mascara-facial-no-rosto-da-mulher-2OVrIfOXDDY"
+    }
+  },
+  {
+    "id": "microagulhamento",
+    "nome": "Microagulhamento",
+    "descricao": "Estimula colágeno e melhora poros e cicatrizes",
+    "mensagem": "microagulhamento",
+    "icone": "dots-nine",
+    "vitrine": false,
+    "rodape": false,
+    "foto": {
+      "arquivo": "microagulhamento.jpg",
+      "recorte": [0, 0.22, 1],
+      "foco": "55% 50%",
+      "credito": "Studio Michael França / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/uma-mulher-que-obtem-seu-cabelo-penteado-por-um-cabeleireiro-profissional-hR3ecKHpq7k"
+    }
+  },
+  {
+    "id": "ultrassom",
+    "nome": "Ultrassom microfocado",
+    "descricao": "Efeito lifting sem corte para a flacidez",
+    "mensagem": "ultrassom microfocado",
+    "icone": "waveform",
+    "vitrine": false,
+    "rodape": false,
+    "foto": {
+      "arquivo": "ultrassom.jpg",
+      "recorte": [0, 0.27, 1],
+      "foco": "35% 50%",
+      "credito": "Mario Schafer / Pexels",
+      "link": "https://www.pexels.com/photo/a-woman-doing-skin-care-using-a-slimming-machine-11816688/"
+    }
+  },
+  {
+    "id": "enzimas",
+    "nome": "Enzimas para gordura",
+    "descricao": "Redução de medidas em pontos específicos do corpo",
+    "mensagem": "enzimas para gordura localizada",
+    "icone": "test-tube",
+    "vitrine": false,
+    "rodape": false,
+    "foto": {
+      "arquivo": "enzimas.jpg",
+      "recorte": [0.02, 0, 0.889],
+      "foco": "50% 50%",
+      "credito": "Sam Moghadam / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/uma-pessoa-que-esta-fazendo-uma-tatuagem-8arH2sLGGz4"
+    }
+  },
+  {
+    "id": "capilar",
+    "nome": "Intradermoterapia capilar",
+    "descricao": "Estimula o crescimento e fortalece os fios",
+    "mensagem": "intradermoterapia capilar",
+    "icone": "plant",
+    "vitrine": false,
+    "rodape": false,
+    "foto": {
+      "arquivo": "capilar.jpg",
+      "recorte": [0, 0.05, 1],
+      "foco": "70% 50%",
+      "credito": "Dermexperia / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/a-mulher-recebe-uma-injecao-de-tratamento-capilar-xb-6wrS8wwI"
+    }
+  },
+  {
+    "id": "vasinhos",
+    "nome": "Secagem de vasinhos",
+    "descricao": "Reduz os vasinhos aparentes das pernas",
+    "mensagem": "secagem de vasinhos",
+    "icone": "heartbeat",
+    "vitrine": false,
+    "rodape": false,
+    "foto": {
+      "arquivo": "vasinhos.jpg",
+      "recorte": [0.11, 0, 0.889],
+      "foco": "68% 50%",
+      "credito": "Ana Dujmovic / Unsplash",
+      "link": "https://unsplash.com/pt-br/fotografias/uma-mulher-nua-deitada-de-costas-no-escuro--zpq9DSWRTQ"
+    }
+  }
+]

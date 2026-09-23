@@ -1,0 +1,82 @@
+/* ---------------------------------------------------------------- sobre
+   Três colunas como no mockup: a foto do Dr. sentado (quase quadrada), o texto em
+   primeira pessoa com a assinatura, e quatro cartões de compromisso. No celular o texto
+   se abre (display: contents) e a foto entra entre o título e os parágrafos.            */
+.sobre__grade {
+  display: grid;
+  grid-template-columns: minmax(0, 458fr) minmax(0, 470fr) minmax(0, 292fr);
+  gap: 0 clamp(28px, 3.4vw, 50px);
+  align-items: start;
+}
+.sobre__grade > .sobre__cards { margin-left: calc(clamp(28px, 3.4vw, 50px) * -.45); }
+
+.sobre__foto {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -34px rgb(60 42 18 / .55), 0 2px 6px rgb(60 42 18 / .08);
+}
+.sobre__foto img { width: 100%; height: auto; }
+
+.sobre__texto { padding-top: 6px; }
+.sobre__texto .titulo { font-size: clamp(2.3rem, 1.5rem + 1.95vw, 3.25rem); line-height: .99; }
+.sobre__paragrafos { display: grid; gap: 14px; max-width: 34em; margin-top: 22px; font-size: 14.5px; line-height: 1.75; }
+.sobre__assinatura { margin-top: 26px; color: #8A6532; }
+.sobre__assinatura .assinatura { width: min(292px, 90%); }
+.sobre__credencial {
+  margin-top: 12px;
+  font: 600 11px/1.4 var(--fonte-texto);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #8F826E;
+}
+.sobre__barra { margin-inline: .7em; color: #C9B494; }
+
+.sobre__cards { display: grid; gap: 16px; }
+.mini {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  align-items: center;
+  gap: 14px;
+  min-height: 96px;
+  padding: 16px 18px 16px 16px;
+  border: 1px solid var(--linha-clara);
+  border-radius: var(--raio);
+  background: linear-gradient(180deg, #FAF7F2, #F6F1E9);
+  box-shadow: 0 1px 0 rgb(255 255 255 / .8) inset, 0 12px 26px -22px rgb(60 42 18 / .45);
+  transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .3s ease;
+}
+.mini__icone { width: 42px; height: 42px; margin-inline: auto; color: #A8731F; transition: transform .5s var(--ease-out); }
+.mini h3 {
+  font: 700 11.5px/1.35 var(--fonte-texto);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tinta);
+}
+.mini p { margin-top: 5px; font-size: 12.5px; line-height: 1.45; color: #6B6255; }
+@media (hover: hover) {
+  .mini:hover { transform: translateY(-3px); border-color: #D6BE95; box-shadow: 0 1px 0 rgb(255 255 255 / .8) inset, 0 18px 32px -22px rgb(60 42 18 / .55); }
+  .mini:hover .mini__icone { transform: scale(1.08) rotate(-4deg); }
+}
+
+/* tablet: foto e texto lado a lado, cartões embaixo em duas colunas */
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .sobre__grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px 36px; }
+  .sobre__grade > .sobre__cards { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-left: 0; }
+}
+
+/* celular: rótulo, título, foto, parágrafos, assinatura e cartões 2 x 2 */
+@media (max-width: 47.99em) {
+  .sobre__grade { grid-template-columns: minmax(0, 1fr); }
+  .sobre__texto { display: contents; }
+  .sobre__texto > .rotulo { order: 1; }
+  .sobre__texto > .titulo { order: 2; margin-bottom: 26px; }
+  .sobre__foto { order: 3; }
+  .sobre__paragrafos { order: 4; margin-top: 26px; font-size: 15px; }
+  .sobre__assinatura { order: 5; }
+  .sobre__grade > .sobre__cards { order: 6; margin: 34px 0 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .mini { grid-template-columns: 1fr; align-items: start; gap: 10px; min-height: 0; padding: 18px 14px; }
+  .mini__icone { margin-inline: 0; width: 32px; height: 32px; }
+  .mini h3 { font-size: 10.5px; letter-spacing: .08em; }
+  .mini p { font-size: 12.5px; }
+}

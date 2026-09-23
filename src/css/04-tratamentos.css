@@ -1,0 +1,153 @@
+/* ---------------------------------------------------------------- tratamentos
+   Oito cartões à vista (4 x 2, como no mockup) e os outros seis atrás do "Ver todos".
+   O cartão inteiro é o botão do WhatsApp daquele serviço, com a mensagem pronta
+   (regra da casa). A seta dourada acende no hover.                                     */
+.trats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.trat__link {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  grid-template-areas: 'icone icone' 'texto seta';
+  align-items: center;
+  gap: 16px 14px;
+  height: 100%;
+  min-height: 168px;
+  padding: 26px 22px 24px 24px;
+  border: 1px solid var(--linha-escura);
+  border-radius: var(--raio);
+  background: linear-gradient(165deg, #1B1813 0%, #141210 55%, #110F0C 100%);
+  box-shadow: inset 0 1px 0 rgb(255 240 210 / .04), 0 18px 34px -26px rgb(0 0 0 / .9);
+  transition: transform .5s var(--ease-out), border-color .35s ease, box-shadow .5s var(--ease-out);
+}
+/* brilho quente no canto de cima, que aumenta no hover */
+.trat__link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(70% 60% at 0% 0%, rgb(223 160 57 / .13), transparent 70%);
+  opacity: .8;
+  transition: opacity .5s ease;
+}
+.trat__selo { grid-area: icone; display: flex; }
+.trat__icone { width: 30px; height: 30px; color: var(--ouro); transition: transform .5s var(--ease-out); }
+
+/* foto do tratamento (banco de imagem): encosta nas bordas do cartão e desce pro preto
+   dele por um degradê, e o ícone vira um selo redondo sentado na emenda */
+/* a sobra de altura (cartão vizinho com título de duas linhas) vai toda pra linha do texto:
+   sem o 1fr ela se espalhava e abria uma faixa preta em cima da foto e tirava o selo da emenda */
+.trat__link--foto { grid-template-rows: auto auto 1fr; grid-template-areas: 'foto foto' 'icone icone' 'texto seta'; padding-top: 0; }
+.trat__foto {
+  grid-area: foto;
+  align-self: start;
+  position: relative;
+  display: block;
+  margin: 0 -22px 0 -24px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 3px 3px 0 0;
+}
+.trat__foto picture { display: block; width: 100%; height: 100%; }
+.trat__foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease-out);
+}
+.trat__foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #16130F 0%, rgb(22 19 15 / .55) 24%, rgb(22 19 15 / 0) 58%), rgb(11 10 8 / .12);
+  transition: opacity .5s ease;
+}
+.trat__link--foto .trat__selo {
+  align-self: start;
+  position: relative;
+  z-index: 1;
+  place-items: center;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-top: -40px;
+  border: 1px solid rgb(223 160 57 / .6);
+  border-radius: 50%;
+  background: #16130F;
+  box-shadow: 0 8px 18px -8px rgb(0 0 0 / .9);
+}
+.trat__link--foto .trat__icone { width: 24px; height: 24px; }
+.trat__link--foto::before { background: radial-gradient(90% 45% at 0% 72%, rgb(223 160 57 / .1), transparent 70%); }
+.trat__texto { grid-area: texto; align-self: center; }
+.trat__nome { font: 500 22px/1.1 var(--fonte-titulo); color: #F5F0E8; }
+.trat__desc { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: #B4AB9E; }
+.trat__seta {
+  grid-area: seta;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgb(223 160 57 / .75);
+  border-radius: 50%;
+  color: var(--ouro-vivo);
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease, transform .5s var(--ease-out);
+}
+.trat__seta .i { width: 17px; height: 17px; transition: transform .45s var(--ease-out); }
+@media (hover: hover) {
+  .trat__link:hover { transform: translateY(-4px); border-color: rgb(223 160 57 / .5); box-shadow: inset 0 1px 0 rgb(255 240 210 / .06), 0 24px 40px -24px rgb(0 0 0 / .95), 0 0 0 1px rgb(223 160 57 / .08); }
+  .trat__link:hover::before { opacity: 1.6; }
+  .trat__link:hover .trat__icone { transform: translateY(-2px) scale(1.06); }
+  .trat__link:hover .trat__foto img { transform: scale(1.05); }
+  .trat__link:hover .trat__foto::after { opacity: .75; }
+  .trat__link:hover .trat__seta { background: var(--ouro-escovado); border-color: transparent; color: #17120B; }
+  .trat__link:hover .trat__seta .i { transform: translateX(2px); }
+}
+.trat__link:active { transform: scale(.985); transition-duration: .12s; }
+
+/* os seis que ficam atrás do "Ver todos": a altura abre por grid-template-rows */
+/* sem JS fica aberto e o botão some */
+.trats-mais { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .7s var(--ease-in-out); }
+.trats-mais__dentro { overflow: hidden; min-height: 0; }
+.trats--mais { padding-top: 22px; }
+.js .trats-mais:not(.aberto) { grid-template-rows: 0fr; }
+.tratamentos__mais { display: none; justify-content: center; margin-top: 34px; }
+.js .tratamentos__mais { display: flex; }
+.tratamentos__mais .btn { min-width: 340px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .trats-mais.aberto .trat { animation: sobe .75s var(--ease-suave) calc(.12s + var(--i) * 60ms) backwards; }
+}
+
+@media (min-width: 40em) and (max-width: 63.99em) {
+  .trats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+@media (max-width: 39.99em) {
+  .trats { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .trats--mais { padding-top: 12px; }
+  .trat__link {
+    grid-template-columns: 34px minmax(0, 1fr) 40px;
+    grid-template-areas: 'icone texto seta';
+    gap: 14px;
+    min-height: 0;
+    padding: 18px 16px 18px 18px;
+  }
+  .trat__icone { width: 28px; height: 28px; align-self: start; margin-top: 2px; }
+  .trat__nome { font-size: 21px; }
+  .trat__desc { margin-top: 4px; font-size: 13px; }
+  .trat__seta { width: 40px; height: 40px; }
+  /* com foto: miniatura na esquerda, da altura do cartão, no lugar do ícone */
+  .trat__link--foto {
+    grid-template-columns: 104px minmax(0, 1fr) 40px;
+    grid-template-rows: auto;
+    grid-template-areas: 'foto texto seta';
+    min-height: 112px;
+    padding: 16px 16px 16px 0;
+  }
+  .trat__link--foto .trat__foto { align-self: stretch; margin: -16px 0; aspect-ratio: auto; border-radius: 3px 0 0 3px; }
+  .trat__link--foto .trat__foto img { object-position: var(--foco, 50% 50%); }
+  .trat__link--foto .trat__foto::after { background: linear-gradient(to left, #16130F 0%, rgb(22 19 15 / 0) 38%), rgb(11 10 8 / .1); }
+  .trat__link--foto .trat__selo { display: none; }
+  .tratamentos__mais .btn { width: 100%; min-width: 0; }
+}

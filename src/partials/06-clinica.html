@@ -1,0 +1,21 @@
+    <section class="clinica secao secao--escura" id="clinica" aria-labelledby="clinica-titulo">
+      <figure class="clinica__foto" data-revela="foto-lado">
+        <img data-img="clinica-recepcao" sizes="(min-width: 64em) 52vw, 100vw" alt="Recepção da Clínica Lorenti em Jundiaí, com poltronas caramelo, abajur aceso e orquídea" loading="lazy" decoding="async">
+      </figure>
+
+      <div class="container clinica__grade">
+        <div class="clinica__texto">
+          <p class="rotulo" data-revela>A clínica</p>
+          <h2 class="titulo" id="clinica-titulo" data-revela style="--i:1">Um espaço pensado <br class="quebra">para você</h2>
+          <p data-revela style="--i:2">Localizada em Jundiaí, nossa clínica foi cuidadosamente planejada para oferecer uma experiência completa, unindo conforto, tecnologia e um ambiente <span class="destaque">acolhedor</span>.</p>
+
+          <ul class="clinica__info" role="list">
+            <li data-revela style="--i:3"><i data-i="map-pin"></i><span>{{cfg.endereco.rua}}<br>{{cfg.endereco.bairro}}<br>{{cfg.endereco.cidade}}/{{cfg.endereco.uf}}</span></li>
+            <li data-revela style="--i:4"><i data-i="clock"></i><span>Atendimento<br>com horário agendado</span></li>
+            <li data-revela style="--i:5"><i data-i="shield-check" data-w="fill"></i><span>Ambiente seguro<br>e privativo</span></li>
+          </ul>
+
+          <a class="btn btn--contorno" href="{{cfg.mapa}}" target="_blank" rel="noopener" data-revela style="--i:6">Conhecer a clínica</a>
+        </div>
+      </div>
+    </section>

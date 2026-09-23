@@ -1,0 +1,51 @@
+  <footer class="rodape" id="contato">
+    <div class="container rodape__grade">
+      <div class="rodape__marca">
+        <img data-img="monograma" data-img-max="132" sizes="66px" alt="" class="rodape__mono" loading="lazy" decoding="async">
+        <p class="rodape__nome">Clínica Lorenti</p>
+        <p class="rodape__linha">Doutor Marciel Lorenti</p>
+        <p class="rodape__linha">CRBM-SP 37959</p>
+        <ul class="rodape__redes" role="list">
+          <li><a href="{{cfg.instagram}}" target="_blank" rel="noopener" aria-label="Instagram do Dr. Marciel Lorenti"><i data-i="instagram-logo"></i></a></li>
+          <li><a href="{{wa:contato}}" target="_blank" rel="noopener" data-zap="rodape-icone" aria-label="WhatsApp da Clínica Lorenti"><i data-i="whatsapp-logo"></i></a></li>
+        </ul>
+      </div>
+
+      <nav class="rodape__col" aria-labelledby="rodape-tratamentos">
+        <h2 class="rodape__titulo" id="rodape-tratamentos">Tratamentos</h2>
+        <ul role="list">
+            <!-- @tratamentos-rodape -->
+        </ul>
+      </nav>
+
+      <nav class="rodape__col" aria-labelledby="rodape-institucional">
+        <h2 class="rodape__titulo" id="rodape-institucional">Institucional</h2>
+        <ul role="list">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="rodape__col rodape__contato">
+        <h2 class="rodape__titulo">Contato</h2>
+        <ul role="list">
+          <li><i data-i="phone"></i><a href="{{wa:contato}}" target="_blank" rel="noopener" data-zap="rodape-telefone">{{cfg.whatsappExibir}}</a></li>
+          <li><i data-i="map-pin"></i><a href="{{cfg.mapa}}" target="_blank" rel="noopener">{{cfg.endereco.rua}}<br>{{cfg.endereco.bairro}}, {{cfg.endereco.cidade}}/{{cfg.endereco.uf}}</a></li>
+          <li><i data-i="clock"></i><span>{{cfg.horario}}</span></li>
+        </ul>
+      </div>
+
+      <div class="rodape__cta">
+        <a class="btn btn--ouro btn--topo" href="{{wa:avaliacao}}" target="_blank" rel="noopener" data-zap="rodape">Agendar avaliação</a>
+      </div>
+    </div>
+
+    <div class="container rodape__base">
+      <p>© {{ano}} Clínica Lorenti. Todos os direitos reservados. Site por <a href="{{cfg.credito}}" target="_blank" rel="noopener">Credialta Sites</a>.</p>
+      <p>Estética avançada com ciência, para uma beleza real.</p>
+    </div>
+  </footer>

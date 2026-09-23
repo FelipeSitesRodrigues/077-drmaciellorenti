@@ -1,0 +1,40 @@
+<!-- @head -->
+<link rel="preload" as="image" type="image/avif" media="(max-width: 63.99em)" imagesrcset="/assets/img/hero-celular-480.avif 480w, /assets/img/hero-celular-760.avif 760w, /assets/img/hero-celular-900.avif 900w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(min-width: 64em)" imagesrcset="/assets/img/hero-fundo-1280.avif 1280w, /assets/img/hero-fundo-1680.avif 1680w, /assets/img/hero-fundo-2127.avif 2127w" imagesizes="100vw" fetchpriority="high">
+<!-- /@head -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="container hero__grade">
+        <h1 class="hero__titulo" id="hero-titulo">
+          <span class="rotulo hero__rotulo">Harmonização facial e corporal em Jundiaí</span>
+          <span class="hero__frase">
+            <span class="hero__linha"><span>Beleza real</span></span>
+            <span class="hero__linha"><span>na sua <em class="ouro-metal">melhor</em></span></span>
+            <span class="hero__linha"><span><em class="ouro-metal">versão</em></span></span>
+          </span>
+        </h1>
+
+        <!-- celular: a composição com o Dr. (entre o título e o subtítulo); computador: o fundo da cena inteira -->
+        <img data-img="hero-celular" data-desk="hero-fundo" sizes="100vw" data-desk-sizes="100vw" data-picture="hero__fundo" alt="Dr. Marciel Lorenti, biomédico esteta, na Clínica Lorenti em Jundiaí" fetchpriority="high" decoding="async">
+        <!-- só no computador: o Dr. na frente do fundo (no celular vem um GIF de 1 px, sem download) -->
+        <img data-img="nada" data-desk="hero-dr" data-desk-sizes="(min-width: 90em) 572px, 40vw" data-picture="hero__dr" alt="" decoding="async">
+
+        <p class="hero__sub">Avaliação personalizada e tratamentos modernos para realçar o que você tem de mais autêntico, sempre com naturalidade, segurança e evidência.</p>
+
+        <div class="hero__botoes">
+          <a class="btn btn--ouro" href="{{wa:avaliacao}}" target="_blank" rel="noopener" data-zap="hero"><i data-i="whatsapp-logo" data-w="regular"></i>Agendar avaliação</a>
+          <a class="btn btn--contorno btn--contorno-claro" href="#tratamentos">Conhecer os tratamentos</a>
+        </div>
+
+        <ul class="hero__palavras" role="list">
+          <li>Ciência</li>
+          <li>Estética</li>
+          <li>Naturalidade</li>
+          <li>Confiança</li>
+        </ul>
+
+        <div class="hero__assinatura">
+          <svg class="assinatura" role="img" aria-label="Dr. Marciel Lorenti"><use href="#assinatura"/></svg>
+          <p>Biomédico esteta<br>CRBM-SP 37959</p>
+        </div>
+      </div>
+    </section>
