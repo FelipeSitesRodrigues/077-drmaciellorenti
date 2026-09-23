@@ -15,6 +15,7 @@
  * - Dados em src/dados/*.json viram HTML no build (sai tudo no HTML, pro Google ler):
  *   <!-- @tratamentos --> os cards (8 à vista e o resto atrás do "Ver todos"), cada um
  *   com o WhatsApp do próprio serviço; <!-- @tratamentos-rodape --> a lista do rodapé;
+ *   <!-- @resultados --> a faixa de antes e depois (a lista sai duas vezes, pra dar a volta);
  *   <!-- @depoimentos --> os cards do carrossel; <!-- @duvidas --> o acordeão.
  * - {{wa:chave}} vira o link do WhatsApp com a mensagem mensagens.chave do config.
  *   {{cfg.caminho}} puxa qualquer valor do config; {{ano}} é o ano atual.
@@ -42,6 +43,7 @@ const DIST = P('dist')
 const cfg = JSON.parse(readFileSync(P('site.config.json'), 'utf8'))
 const dados = (nome) => JSON.parse(readFileSync(P('src/dados', `${nome}.json`), 'utf8'))
 const tratamentos = dados('tratamentos')
+const resultados = dados('resultados')
 const depoimentos = dados('depoimentos')
 const duvidas = dados('duvidas')
 const manifesto = existsSync(P('src/assets/img/manifesto.json')) ? JSON.parse(readFileSync(P('src/assets/img/manifesto.json'), 'utf8')) : {}
@@ -261,6 +263,33 @@ const htmlTratamentosRodape = () =>
     .map((t) => `<li><a href="#tratamentos">${esc(t.nome)}</a></li>`)
     .join('\n            ')
 
+// ---------------------------------------------------------------- resultados (src/dados/resultados.json)
+// A faixa de antes e depois anda sozinha (CSS) e dá a volta sem emenda porque a lista sai
+// duas vezes: a segunda é só visual (aria-hidden e inert, fotos com alt vazio) e usa os
+// mesmos arquivos, então não baixa nada a mais. Cartão quadrado: "pilha" (2:1 em cima e
+// embaixo) ou "lado" (1:2 um do lado do outro).
+function cardResultado(c, copia) {
+  const pilha = c.layout === 'pilha'
+  const sizes = pilha ? '(min-width: 64em) 360px, (min-width: 40em) 320px, 280px' : '(min-width: 64em) 178px, (min-width: 40em) 158px, 138px'
+  const foto = (lado, rotulo) => `
+              <div class="res__foto">
+                <img data-img="res-${c.id}-${lado}" sizes="${sizes}" alt="${copia ? '' : esc(c[lado].alt)}" loading="lazy" decoding="async">
+                <span class="res__tag">${rotulo}</span>
+              </div>`
+  return `
+          <li class="res">
+            <figure class="res__caso res__caso--${pilha ? 'pilha' : 'lado'}">
+              <div class="res__fotos">${foto('antes', 'Antes')}${foto('depois', 'Depois')}
+              </div>
+              <figcaption class="res__legenda"><strong>${esc(c.procedimento)}</strong><span>${esc(c.detalhe)}</span></figcaption>
+            </figure>
+          </li>`
+}
+const htmlResultados = () => `<ul class="faixa__lista" role="list">${resultados.map((c) => cardResultado(c, false)).join('')}
+        </ul>
+        <ul class="faixa__lista" role="list" aria-hidden="true" inert>${resultados.map((c) => cardResultado(c, true)).join('')}
+        </ul>`
+
 // ---------------------------------------------------------------- depoimentos (src/dados/depoimentos.json)
 // o G e as cinco estrelas entram uma vez no sprite (<!-- @sprite-depoimentos -->) e cada
 // cartão só aponta pra eles: nove cartões com 5 estrelas cada eram 100 nós a mais no DOM
@@ -371,6 +400,7 @@ function montar(parciais) {
   html = html
     .replace('<!-- @tratamentos -->', htmlTratamentos)
     .replace('<!-- @tratamentos-rodape -->', htmlTratamentosRodape)
+    .replace('<!-- @resultados -->', htmlResultados)
     .replace('<!-- @depoimentos -->', htmlDepoimentos)
     .replace('<!-- @duvidas -->', htmlDuvidas)
   html = html.replace(/<!--\s*@se\s+cfg\.([\w.]+)\s*-->([\s\S]*?)<!--\s*\/@se\s*-->/g, (_, c, dentro) => (valor(c, false) ? dentro : ''))

@@ -13,8 +13,9 @@
  * - A clínica: a recepção real, recortada do story do Instagram (print 17), sem a
  *   barra do Instagram. Escolha do Felipe em 2026-09-23 (o render do mockup não é a
  *   recepção de verdade).
- * - Resultados: o único antes e depois real dos prints, o laser Lavieen da print 10
- *   (antes e 5 dias depois), sem as etiquetas do story. Escolha do Felipe: só caso real.
+ * - Resultados: os antes e depois reais que o Dr. Marciel mandou (pasta ANTES E DEPOIS)
+ *   e o laser Lavieen da print 10, recortados sem nada de post ou de story, com o recorte
+ *   no src/dados/resultados.json. Só caso real (escolha do Felipe).
  * - Tratamentos: uma foto de banco de imagem por cartão (Unsplash e Pexels), em
  *   "TRATAMENTOS (banco de imagem)", com recorte e crédito no tratamentos.json.
  * - CTA final: o close do Dr. com a mão no queixo só existe dentro do mockup. Sai
@@ -120,16 +121,31 @@ await variantes(
   { q: 80 },
 )
 
-// ---------------------------------------------------------------- resultados: laser Lavieen (print 10)
-// Antes e depois recortados acima das etiquetas do story, na mesma proporção. O depois
-// é uma foto de mais longe, então sai de uma área menor, pro rosto ficar do mesmo tamanho.
+// ---------------------------------------------------------------- resultados: antes e depois da faixa
+// Casos reais que o Dr. Marciel mandou (pasta ANTES E DEPOIS) e o laser Lavieen do story
+// (print 10). Recorte em src/dados/resultados.json, sempre dentro da foto: nada da arte do
+// post, da etiqueta do story, da marca d'água nem do quadrinho do "antes" que vinha
+// dentro da foto do lábio. "pilha" é antes em cima e depois embaixo (fotos 2:1), "lado"
+// é um do lado do outro (fotos 1:2); o cartão sai quadrado nos dois.
+// Sem ajuste de cor nem de pele: é resultado de paciente, sai como a clínica fotografou.
+// Foto pequena (print, quadrinho do lábio) sobe até o tamanho do cartão com lanczos.
 {
-  // antes: abaixo do nome da paciente e acima da etiqueta "Antes do lavieen"
-  const antes = await sharp(`${PRINTS}/Captura de Tela (10).png`).extract({ left: 764, top: 200, width: 367, height: 330 }).toBuffer()
-  // depois: abaixo da marcação do perfil e acima da etiqueta "5 dias pós lavieen"
-  const depois = await sharp(`${PRINTS}/Captura de Tela (10).png`).extract({ left: 794, top: 685, width: 278, height: 250 }).resize({ width: 367, height: 330, kernel: 'lanczos3' }).sharpen({ sigma: 0.5 }).toBuffer()
-  await variantes(antes, 'resultado-laser-antes', [367], { q: 82 })
-  await variantes(depois, 'resultado-laser-depois', [367], { q: 82 })
+  const casos = JSON.parse(readFileSync('src/dados/resultados.json', 'utf8'))
+  for (const c of casos) {
+    const pilha = c.layout === 'pilha'
+    const [W, H] = pilha ? [720, 360] : [360, 720]
+    for (const lado of ['antes', 'depois']) {
+      const [x, y, w] = c[lado].recorte
+      const origem = `${R}/${c.arquivo}`
+      const m = await sharp(origem).metadata()
+      const width = Math.round(w * m.width)
+      const box = { left: Math.round(x * m.width), top: Math.round(y * m.height), width, height: Math.round(pilha ? width / 2 : width * 2) }
+      if (box.left + box.width > m.width || box.top + box.height > m.height) throw new Error(`recorte fora da foto: ${c.id} ${lado}`)
+      let p = sharp(origem).extract(box).resize({ width: W, height: H, fit: 'fill', kernel: 'lanczos3' })
+      if (box.width < W * 0.8) p = p.sharpen({ sigma: 0.5 })
+      await variantes(await p.toBuffer(), `res-${c.id}-${lado}`, pilha ? [360, 720] : [180, 360], { q: 80 })
+    }
+  }
 }
 
 // ---------------------------------------------------------------- tratamentos: uma foto por cartão

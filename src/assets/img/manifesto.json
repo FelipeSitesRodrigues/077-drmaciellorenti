@@ -129,24 +129,364 @@
   "h": 774,
   "kb": 44
  },
- "resultado-laser-antes-367.avif": {
-  "w": 367,
-  "h": 330,
+ "res-toxina-testa-1-antes-360.avif": {
+  "w": 360,
+  "h": 180,
   "kb": 8
  },
- "resultado-laser-antes-367.webp": {
-  "w": 367,
-  "h": 330,
+ "res-toxina-testa-1-antes-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 12
+ },
+ "res-toxina-testa-1-antes-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 29
+ },
+ "res-toxina-testa-1-antes-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 40
+ },
+ "res-toxina-testa-1-depois-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-toxina-testa-1-depois-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 7
+ },
+ "res-toxina-testa-1-depois-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 19
+ },
+ "res-toxina-testa-1-depois-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 23
+ },
+ "res-labios-1-antes-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 4
+ },
+ "res-labios-1-antes-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 4
+ },
+ "res-labios-1-antes-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 8
+ },
+ "res-labios-1-antes-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 9
+ },
+ "res-labios-1-depois-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 5
+ },
+ "res-labios-1-depois-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-labios-1-depois-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 13
+ },
+ "res-labios-1-depois-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 16
+ },
+ "res-pele-1-antes-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 5
+ },
+ "res-pele-1-antes-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-pele-1-antes-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 12
+ },
+ "res-pele-1-antes-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 14
+ },
+ "res-pele-1-depois-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 5
+ },
+ "res-pele-1-depois-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-pele-1-depois-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 12
+ },
+ "res-pele-1-depois-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 14
+ },
+ "res-toxina-glabela-antes-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-toxina-glabela-antes-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 7
+ },
+ "res-toxina-glabela-antes-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 22
+ },
+ "res-toxina-glabela-antes-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 25
+ },
+ "res-toxina-glabela-depois-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 4
+ },
+ "res-toxina-glabela-depois-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-toxina-glabela-depois-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 15
+ },
+ "res-toxina-glabela-depois-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 17
+ },
+ "res-corpo-1-antes-180.avif": {
+  "w": 180,
+  "h": 360,
+  "kb": 6
+ },
+ "res-corpo-1-antes-180.webp": {
+  "w": 180,
+  "h": 360,
+  "kb": 7
+ },
+ "res-corpo-1-antes-360.avif": {
+  "w": 360,
+  "h": 720,
+  "kb": 16
+ },
+ "res-corpo-1-antes-360.webp": {
+  "w": 360,
+  "h": 720,
+  "kb": 20
+ },
+ "res-corpo-1-depois-180.avif": {
+  "w": 180,
+  "h": 360,
+  "kb": 6
+ },
+ "res-corpo-1-depois-180.webp": {
+  "w": 180,
+  "h": 360,
+  "kb": 9
+ },
+ "res-corpo-1-depois-360.avif": {
+  "w": 360,
+  "h": 720,
+  "kb": 16
+ },
+ "res-corpo-1-depois-360.webp": {
+  "w": 360,
+  "h": 720,
+  "kb": 21
+ },
+ "res-toxina-testa-2-antes-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-toxina-testa-2-antes-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 7
+ },
+ "res-toxina-testa-2-antes-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 22
+ },
+ "res-toxina-testa-2-antes-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 27
+ },
+ "res-toxina-testa-2-depois-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 4
+ },
+ "res-toxina-testa-2-depois-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-toxina-testa-2-depois-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 16
+ },
+ "res-toxina-testa-2-depois-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 19
+ },
+ "res-labios-2-antes-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 3
+ },
+ "res-labios-2-antes-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 4
+ },
+ "res-labios-2-antes-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 7
+ },
+ "res-labios-2-antes-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 9
+ },
+ "res-labios-2-depois-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 5
+ },
+ "res-labios-2-depois-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-labios-2-depois-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 13
+ },
+ "res-labios-2-depois-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 15
+ },
+ "res-toxina-testa-3-antes-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-toxina-testa-3-antes-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 8
+ },
+ "res-toxina-testa-3-antes-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 21
+ },
+ "res-toxina-testa-3-antes-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 25
+ },
+ "res-toxina-testa-3-depois-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 5
+ },
+ "res-toxina-testa-3-depois-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 6
+ },
+ "res-toxina-testa-3-depois-720.avif": {
+  "w": 720,
+  "h": 360,
+  "kb": 15
+ },
+ "res-toxina-testa-3-depois-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 18
+ },
+ "res-laser-lavieen-antes-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 5
+ },
+ "res-laser-lavieen-antes-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 5
+ },
+ "res-laser-lavieen-antes-720.avif": {
+  "w": 720,
+  "h": 360,
   "kb": 10
  },
- "resultado-laser-depois-367.avif": {
-  "w": 367,
-  "h": 330,
+ "res-laser-lavieen-antes-720.webp": {
+  "w": 720,
+  "h": 360,
+  "kb": 12
+ },
+ "res-laser-lavieen-depois-360.avif": {
+  "w": 360,
+  "h": 180,
+  "kb": 4
+ },
+ "res-laser-lavieen-depois-360.webp": {
+  "w": 360,
+  "h": 180,
+  "kb": 4
+ },
+ "res-laser-lavieen-depois-720.avif": {
+  "w": 720,
+  "h": 360,
   "kb": 8
  },
- "resultado-laser-depois-367.webp": {
-  "w": 367,
-  "h": 330,
+ "res-laser-lavieen-depois-720.webp": {
+  "w": 720,
+  "h": 360,
   "kb": 9
  },
  "trat-toxina-360.avif": {

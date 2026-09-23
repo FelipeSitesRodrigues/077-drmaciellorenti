@@ -9,6 +9,8 @@
  * - Menu do celular: abre, marca aria-expanded, põe o foco dentro, fecha no link
  *   (e a seção fica visível sob o header) e no Esc (devolvendo o foco pro botão).
  * - Tratamentos: "Ver todos" abre os seis de trás e fecha de novo.
+ * - Faixa de antes e depois: duas voltas (a segunda escondida), emenda sem pulo, fotos
+ *   carregadas, anda sozinha e o botão pausa.
  * - Carrossel: três páginas no computador, setas e pontos mudam a página.
  * - Dúvidas: o acordeão abre uma de cada vez e a resposta fechada fica inerte.
  * - Todo link de WhatsApp: número certo, nova aba e mensagem; os dos cartões com o
@@ -126,6 +128,31 @@ try {
   await espera(1000)
   n = await visiveis()
   ok(n === vitrine, `e fecha de novo (${n} à vista)`)
+
+  console.log('\nFaixa de antes e depois')
+  await page.evaluate(() => document.getElementById('resultados').scrollIntoView({ behavior: 'instant' }))
+  // o mouse fica onde foi o último clique; se cair em cima da faixa, ela pausa (de propósito)
+  await page.mouse.move(2, 2)
+  await espera(1500)
+  const trilhoX = () => page.evaluate(() => new DOMMatrix(getComputedStyle(document.querySelector('.faixa__trilho')).transform).m41)
+  e = await page.evaluate(() => {
+    const ls = [...document.querySelectorAll('.faixa__lista')]
+    const t = document.querySelector('.faixa__trilho').getBoundingClientRect().width
+    return { listas: ls.length, casos: ls[0].children.length, copia: ls[1]?.getAttribute('aria-hidden') === 'true' && ls[1].inert, emenda: Math.abs(t - 2 * ls[0].getBoundingClientRect().width) < 1, fotos: [...document.querySelectorAll('.faixa img')].every((i) => i.complete && i.naturalWidth > 0) }
+  })
+  ok(e.listas === 2 && e.copia, `${e.casos} casos, com a segunda volta escondida do leitor de tela e inerte`)
+  ok(e.emenda, 'a volta emenda sem pulo (trilho = 2 listas)')
+  ok(e.fotos, 'todas as fotos da faixa carregadas')
+  let x1 = await trilhoX()
+  await espera(700)
+  ok((await trilhoX()) < x1 - 5, 'a faixa anda sozinha')
+  await page.click('[data-faixa-pausa]')
+  await espera(200)
+  x1 = await trilhoX()
+  await espera(700)
+  e = await page.evaluate(() => document.querySelector('[data-faixa-pausa]').getAttribute('aria-pressed'))
+  ok(Math.abs((await trilhoX()) - x1) < 0.5 && e === 'true', 'o botão pausa (aria-pressed)')
+  await page.click('[data-faixa-pausa]')
 
   console.log('\nCarrossel de avaliações')
   await page.evaluate(() => document.getElementById('depoimentos').scrollIntoView({ behavior: 'instant' }))

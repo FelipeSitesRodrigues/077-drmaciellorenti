@@ -1,0 +1,83 @@
+[
+  {
+    "id": "toxina-testa-1",
+    "procedimento": "Toxina botulínica",
+    "detalhe": "Linhas da testa",
+    "layout": "pilha",
+    "arquivo": "ANTES E DEPOIS/WhatsApp Image 2026-09-23 at 16.11.32 (2).jpeg",
+    "antes": { "recorte": [0.02, 0.01, 0.96], "alt": "Antes: testa com rugas marcadas ao levantar as sobrancelhas" },
+    "depois": { "recorte": [0.02, 0.51, 0.96], "alt": "Depois: a mesma paciente com a testa lisa ao levantar as sobrancelhas" }
+  },
+  {
+    "id": "labios-1",
+    "procedimento": "Preenchimento labial",
+    "detalhe": "Volume e contorno",
+    "layout": "pilha",
+    "arquivo": "ANTES E DEPOIS/WhatsApp Image 2026-09-23 at 16.11.31 (3).jpeg",
+    "antes": { "recorte": [0.11, 0.595, 0.4], "alt": "Antes: lábios finos, com pouco volume" },
+    "depois": { "recorte": [0, 0.03, 0.85], "alt": "Depois: a mesma paciente com os lábios mais volumosos e contorno definido" }
+  },
+  {
+    "id": "pele-1",
+    "procedimento": "Tratamento de pele",
+    "detalhe": "Manchas e uniformidade",
+    "layout": "pilha",
+    "arquivo": "ANTES E DEPOIS/WhatsApp Image 2026-09-23 at 16.11.31.jpeg",
+    "antes": { "recorte": [0.02, 0.34, 0.46], "alt": "Antes: rosto com manchas escuras nas maçãs e na testa" },
+    "depois": { "recorte": [0.52, 0.34, 0.46], "alt": "Depois: a mesma paciente com a pele mais uniforme e manchas mais claras" }
+  },
+  {
+    "id": "toxina-glabela",
+    "procedimento": "Toxina botulínica",
+    "detalhe": "Entre as sobrancelhas",
+    "layout": "pilha",
+    "arquivo": "ANTES E DEPOIS/WhatsApp Image 2026-09-23 at 16.11.33 (1).jpeg",
+    "antes": { "recorte": [0.02, 0.01, 0.96], "alt": "Antes: linhas fundas entre as sobrancelhas ao franzir a testa" },
+    "depois": { "recorte": [0.02, 0.51, 0.96], "alt": "Depois: a mesma paciente franzindo a testa sem as linhas entre as sobrancelhas" }
+  },
+  {
+    "id": "corpo-1",
+    "procedimento": "Contorno corporal",
+    "detalhe": "Redução de medidas",
+    "layout": "lado",
+    "arquivo": "ANTES E DEPOIS/WhatsApp Image 2026-09-23 at 16.11.31 (1).jpeg",
+    "antes": { "recorte": [0.038, 0.145, 0.184], "alt": "Antes: cintura e abdômen de frente" },
+    "depois": { "recorte": [0.278, 0.145, 0.184], "alt": "Depois: a mesma paciente com a cintura mais fina e o abdômen mais definido" }
+  },
+  {
+    "id": "toxina-testa-2",
+    "procedimento": "Toxina botulínica",
+    "detalhe": "Linhas da testa",
+    "layout": "pilha",
+    "arquivo": "ANTES E DEPOIS/WhatsApp Image 2026-09-23 at 16.11.32 (1).jpeg",
+    "antes": { "recorte": [0.02, 0.01, 0.96], "alt": "Antes: testa com rugas ao levantar as sobrancelhas" },
+    "depois": { "recorte": [0.02, 0.51, 0.96], "alt": "Depois: a mesma paciente com a testa lisa ao levantar as sobrancelhas" }
+  },
+  {
+    "id": "labios-2",
+    "procedimento": "Preenchimento labial",
+    "detalhe": "Volume e contorno",
+    "layout": "pilha",
+    "arquivo": "ANTES E DEPOIS/WhatsApp Image 2026-09-23 at 16.11.31 (2).jpeg",
+    "antes": { "recorte": [0.2, 0.665, 0.43], "alt": "Antes: lábios finos e sem contorno" },
+    "depois": { "recorte": [0, 0.185, 1], "alt": "Depois: a mesma paciente com os lábios mais cheios e desenhados" }
+  },
+  {
+    "id": "toxina-testa-3",
+    "procedimento": "Toxina botulínica",
+    "detalhe": "Linhas da testa",
+    "layout": "pilha",
+    "arquivo": "ANTES E DEPOIS/WhatsApp Image 2026-09-23 at 16.11.33.jpeg",
+    "antes": { "recorte": [0.02, 0.01, 0.96], "alt": "Antes: testa com rugas fundas ao levantar as sobrancelhas" },
+    "depois": { "recorte": [0.02, 0.51, 0.96], "alt": "Depois: a mesma paciente com a testa lisa ao levantar as sobrancelhas" }
+  },
+  {
+    "id": "laser-lavieen",
+    "procedimento": "Laser Lavieen",
+    "detalhe": "Textura e manchas, 5 dias depois",
+    "layout": "pilha",
+    "arquivo": "PRINTS (DEPOIMENTOS, RESULTADOS, PROCEDIMENTOS, AMBIENTE ETC)/Captura de Tela (10).png",
+    "antes": { "recorte": [0.3979, 0.2769, 0.1911], "alt": "Antes do laser Lavieen: pele com textura irregular e manchas" },
+    "depois": { "recorte": [0.4135, 0.7037, 0.1448], "alt": "A mesma paciente 5 dias depois do laser Lavieen, sem filtro e sem maquiagem" }
+  }
+]

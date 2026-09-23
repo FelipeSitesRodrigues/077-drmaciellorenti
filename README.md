@@ -38,6 +38,7 @@ npm run serve        # http://localhost:3077 (ou dois cliques em ABRIR-SITE.bat)
   "Ver todos"), cada um com o WhatsApp do próprio serviço, e a lista do rodapé. O campo
   `foto` de cada tratamento diz o arquivo, o recorte 4:3, o foco da miniatura do celular e
   o crédito da imagem.
+  `resultados.json` são os casos de antes e depois da faixa, com recorte e texto alternativo;
   `depoimentos.json` são as 9 avaliações reais do Google; `duvidas.json` vira o acordeão e o
   JSON-LD de perguntas.
 - `site.config.json` guarda contato, endereço, nota e total de avaliações, horário e as
@@ -47,8 +48,16 @@ npm run serve        # http://localhost:3077 (ou dois cliques em ABRIR-SITE.bat)
 
 ## Decisões que não estão no mockup
 
-- **Resultados:** um caso real (laser Lavieen, print 10). Os três antes e depois do mockup
-  foram inventados pelo ChatGPT e não podem ir pro ar como resultado de paciente.
+- **Resultados:** só caso real. Os três antes e depois do mockup foram inventados pelo
+  ChatGPT e não podem ir pro ar como resultado de paciente. Desde 2026-09-23 a seção é uma
+  faixa contínua com 9 casos (`src/dados/resultados.json`): os 8 mais fortes dos 14 que o
+  Dr. Marciel mandou (pasta `ANTES E DEPOIS`) e o laser Lavieen. Ficaram de fora: o glúteo
+  (foto de calcinha e pele vermelha logo depois da sessão), um lábio que só tinha o depois,
+  uma foto repetida e dois pares de toxina mais fracos. O recorte pega só a foto, sem a
+  arte do post, a marca d'água, o ícone de som do vídeo nem o quadrinho do "antes" que vinha
+  dentro da foto do lábio, e as cores ficam como vieram. A faixa anda por CSS (transform)
+  e para com o mouse em cima, com o dedo segurando, com o foco do teclado dentro, pelo botão
+  de pausar e fora da tela; com movimento reduzido vira fileira de arrastar.
 - **A clínica:** a recepção real, recortada do story do Instagram (print 17), no lugar do
   render do mockup.
 - **Depoimentos:** as avaliações do mockup eram inventadas; entraram 9 reais do Google,

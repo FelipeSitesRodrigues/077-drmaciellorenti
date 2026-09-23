@@ -171,7 +171,7 @@ figure { margin: 0; }
 .cv-pronto :is(.sobre, .tratamentos, .resultados, .clinica, .depoimentos, .duvidas, .cta, .rodape) { content-visibility: visible; }
 .sobre { contain-intrinsic-size: auto 560px; }
 .tratamentos { contain-intrinsic-size: auto 965px; }
-.resultados { contain-intrinsic-size: auto 420px; }
+.resultados { contain-intrinsic-size: auto 667px; }
 .clinica { contain-intrinsic-size: auto 560px; }
 .depoimentos { contain-intrinsic-size: auto 400px; }
 .duvidas { contain-intrinsic-size: auto 480px; }
@@ -180,7 +180,7 @@ figure { margin: 0; }
 @media (max-width: 63.99em) {
   .sobre { contain-intrinsic-size: auto 1500px; }
   .tratamentos { contain-intrinsic-size: auto 1360px; }
-  .resultados { contain-intrinsic-size: auto 820px; }
+  .resultados { contain-intrinsic-size: auto 720px; }
   .clinica { contain-intrinsic-size: auto 900px; }
   .depoimentos { contain-intrinsic-size: auto 740px; }
   .duvidas { contain-intrinsic-size: auto 760px; }
